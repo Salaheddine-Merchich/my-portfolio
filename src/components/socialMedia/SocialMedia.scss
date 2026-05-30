@@ -64,6 +64,10 @@
   background-color: $kaggle;
 }
 
+.phone i {
+  background-color: $phone;
+}
+
 .instagram i {
   background-color: $instagram;
 }
@@ -78,6 +82,7 @@
 .instagram i:hover,
 .stack-overflow i:hover,
 .kaggle i:hover,
+.phone i:hover,
 .medium i:hover {
   background-color: $textColor;
 }

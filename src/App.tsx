@@ -2,7 +2,7 @@ import React from "react";
 import "./App.scss";
 import Main from "./containers/Main";
 
-function App() {
+const App: React.FC = () => {
   return (
     <div>
       <Main />

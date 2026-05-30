@@ -7,21 +7,7 @@
 
 /* header */
 
-.dark-menu {
-  background-color: $darkBackground !important;
-  color: $textColorDark;
-}
-
-.dark-menu li a {
-  color: $textColorDark !important;
-}
-
-.dark-menu li a:hover {
-  background-color: $buttonColor !important;
-}
-
 .header {
-  background-color: $lightBackground1;
   max-width: 100%;
   padding: 15px 20px;
   margin: 0px auto;
@@ -41,13 +27,12 @@
 .header li a {
   display: block;
   padding: 15px 20px;
-  color: $textColor;
   text-decoration: none;
 }
 
 .header li a:hover,
 .header .menu-btn:hover {
-  background-color: $headerHoverBG;
+  background-color: transparent;
 }
 
 .header .logo {
@@ -56,7 +41,6 @@
   float: left;
   font-size: 1.5em;
   text-decoration: none;
-  margin-top: 10px;
   line-height: normal;
 }
 
@@ -74,6 +58,10 @@
   clear: both;
   max-height: 0;
   transition: max-height 0.2s ease-out;
+}
+
+.dark-menu {
+  background-color: transparent !important;
 }
 
 /* menu icon */

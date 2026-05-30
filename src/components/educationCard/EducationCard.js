@@ -1,5 +1,5 @@
 import React, {createRef, useContext} from "react";
-import {Fade, Slide} from "react-reveal";
+import {motion} from "framer-motion";
 import "./EducationCard.scss";
 import StyleContext from "../../contexts/StyleContext";
 
@@ -21,8 +21,17 @@ export default function EducationCard({school}) {
     console.error(`Image of ${school.name} is missing in education section`);
   return (
     <div>
-      <Fade left duration={1000}>
-        <div className="education-card">
+      <motion.div
+        initial={{opacity: 0, y: 20}}
+        whileInView={{opacity: 1, y: 0}}
+        viewport={{once: true}}
+        transition={{duration: 0.6}}
+      >
+        <div
+          className={`${
+            isDark ? "bg-gray-900 text-white" : "bg-white text-gray-800"
+          } education-card p-5 rounded-lg shadow-xl mb-6`}
+        >
           {school.logo && (
             <div className="education-card-left">
               <img
@@ -63,10 +72,15 @@ export default function EducationCard({school}) {
             </div>
           </div>
         </div>
-      </Fade>
-      <Slide left duration={2000}>
+      </motion.div>
+      <motion.div
+        initial={{opacity: 0, x: -20}}
+        whileInView={{opacity: 1, x: 0}}
+        viewport={{once: true}}
+        transition={{duration: 0.8}}
+      >
         <div className="education-card-border"></div>
-      </Slide>
+      </motion.div>
     </div>
   );
 }

@@ -36,10 +36,18 @@ export default function socialMedia() {
         <a
           href={`mailto:${socialMediaLinks.gmail}`}
           className="icon-button google"
-          target="_blank"
-          rel="noopener noreferrer"
         >
           <i className="fas fa-envelope"></i>
+          <span></span>
+        </a>
+      ) : null}
+
+      {socialMediaLinks.phone ? (
+        <a
+          href={`tel:${socialMediaLinks.phone}`}
+          className="icon-button phone"
+        >
+          <i className="fas fa-phone"></i>
           <span></span>
         </a>
       ) : null}

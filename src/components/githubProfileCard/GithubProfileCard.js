@@ -1,19 +1,31 @@
-import React from "react";
+import React, {useContext} from "react";
 import "./GithubProfileCard.scss";
 import SocialMedia from "../../components/socialMedia/SocialMedia";
 import {contactInfo, isHireable} from "../../portfolio";
 import emoji from "react-easy-emoji";
-import {Fade} from "react-reveal";
+import {motion} from "framer-motion";
+import StyleContext from "../../contexts/StyleContext";
 
 export default function GithubProfileCard({prof}) {
+  const {isDark} = useContext(StyleContext);
   if (isHireable) {
     prof.hireable = "Yes";
   } else {
     prof.hireable = "No";
   }
   return (
-    <Fade bottom duration={1000} distance="20px">
-      <div className="main" id="contact">
+    <motion.div
+      initial={{opacity: 0, y: 20}}
+      whileInView={{opacity: 1, y: 0}}
+      viewport={{once: true}}
+      transition={{duration: 0.6}}
+    >
+      <div
+        className={`${
+          isDark ? "bg-gray-900 text-white" : "bg-white text-gray-800"
+        } main p-8 rounded-2xl shadow-2xl`}
+        id="contact"
+      >
         <h1 className="prof-title">Reach Out to me!</h1>
         <div className="row">
           <div className="main-content-profile">
@@ -52,11 +64,11 @@ export default function GithubProfileCard({prof}) {
             <img
               src={prof.avatarUrl}
               alt={prof.name}
-              className="profile-image"
+              className="profile-image shadow-lg"
             />
           </div>
         </div>
       </div>
-    </Fade>
+    </motion.div>
   );
 }

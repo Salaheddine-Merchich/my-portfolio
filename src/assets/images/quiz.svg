@@ -1,0 +1,26 @@
+<svg width="400" height="300" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="400" height="300" rx="20" fill="#1E293B" fill-opacity="0.5"/>
+  
+  <!-- Mobile Phone -->
+  <rect x="120" y="40" width="160" height="230" rx="20" fill="#0F172A" stroke="#94A3B8" stroke-width="6"/>
+  <rect x="190" y="50" width="20" height="4" rx="2" fill="#334155"/>
+  
+  <!-- Quiz Screen -->
+  <text x="140" y="90" fill="#FFF" font-size="14" font-weight="bold">Who won 2022?</text>
+  <rect x="140" y="110" width="120" height="25" rx="4" fill="#334155"/>
+  <text x="150" y="127" fill="#FFF" font-size="10">A) France</text>
+  <rect x="140" y="145" width="120" height="25" rx="4" fill="#6366F1"/>
+  <text x="150" y="162" fill="#FFF" font-size="10">B) Argentina</text>
+  <rect x="140" y="180" width="120" height="25" rx="4" fill="#334155"/>
+  <text x="150" y="197" fill="#FFF" font-size="10">C) Morocco</text>
+  
+  <!-- Soccer Ball -->
+  <circle cx="310" cy="220" r="35" fill="#FFF"/>
+  <path d="M310 185V255M275 220H345M285 195L335 245M335 195L285 245" stroke="#000" stroke-width="2"/>
+  <circle cx="310" cy="220" r="10" fill="#000"/>
+  
+  <!-- Trophy -->
+  <path d="M60 180H100M65 180V160H95V180M70 180V220C70 231.046 78.9543 240 90 240H70" stroke="#FACC15" stroke-width="6" stroke-linecap="round"/>
+  <path d="M70 160C70 140 90 140 90 140C90 140 110 140 110 160V180C110 191.046 101.046 200 90 200" stroke="#FACC15" stroke-width="6" stroke-linecap="round"/>
+</svg>

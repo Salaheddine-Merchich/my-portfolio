@@ -1,0 +1,45 @@
+<svg width="500" height="400" viewBox="0 0 500 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background Glow -->
+  <circle cx="250" cy="200" r="150" fill="url(#paint0_radial)" fill-opacity="0.3"/>
+  
+  <!-- Dashboard/Coding Abstract Shapes -->
+  <!-- Main Frame -->
+  <rect x="50" y="50" width="400" height="300" rx="20" fill="#0F172A" stroke="#334155" stroke-width="4"/>
+  <rect x="50" y="50" width="400" height="40" rx="20" fill="#1E293B" stroke="#334155" stroke-width="2"/>
+  <circle cx="80" cy="70" r="6" fill="#FF5F56"/>
+  <circle cx="100" cy="70" r="6" fill="#FFBD2E"/>
+  <circle cx="120" cy="70" r="6" fill="#27C93F"/>
+
+  <!-- Code Blocks (Abstract) -->
+  <rect x="80" y="110" width="120" height="12" rx="6" fill="#6366F1"/>
+  <rect x="80" y="140" width="180" height="12" rx="6" fill="#818CF8"/>
+  <rect x="80" y="170" width="140" height="12" rx="6" fill="#C7D2FE"/>
+  
+  <!-- Graphical Elements -->
+  <!-- Progress Circle -->
+  <circle cx="350" cy="180" r="60" stroke="#334155" stroke-width="12"/>
+  <path d="M350 120C383.137 120 410 146.863 410 180" stroke="url(#paint1_linear)" stroke-width="12" stroke-linecap="round"/>
+  <text x="330" y="190" fill="white" font-family="Arial" font-weight="bold" font-size="24">85%</text>
+
+  <!-- Bar Chart -->
+  <rect x="280" y="260" width="20" height="60" rx="4" fill="url(#paint2_linear)"/>
+  <rect x="310" y="280" width="20" height="40" rx="4" fill="url(#paint1_linear)"/>
+  <rect x="340" y="240" width="20" height="80" rx="4" fill="#C7D2FE"/>
+  <rect x="370" y="270" width="20" height="50" rx="4" fill="#818CF8"/>
+  <rect x="400" y="290" width="20" height="30" rx="4" fill="#6366F1"/>
+
+  <defs>
+    <radialGradient id="paint0_radial" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(250 200) rotate(90) scale(150)">
+      <stop stop-color="#6366F1"/>
+      <stop offset="1" stop-color="#0F172A" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="paint1_linear" x1="280" y1="280" x2="330" y2="320" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#6366F1"/>
+      <stop offset="1" stop-color="#A855F7"/>
+    </linearGradient>
+    <linearGradient id="paint2_linear" x1="280" y1="260" x2="300" y2="320" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#6366F1"/>
+      <stop offset="1" stop-color="#3B82F6"/>
+    </linearGradient>
+  </defs>
+</svg>

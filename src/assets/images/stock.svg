@@ -1,0 +1,23 @@
+<svg width="400" height="300" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="400" height="300" rx="20" fill="#1E293B" fill-opacity="0.5"/>
+  
+  <!-- Warehouse Outline -->
+  <path d="M60 220V120L200 60L340 120V220H60Z" stroke="#6366F1" stroke-width="8" stroke-linejoin="round"/>
+  <path d="M150 220V160H250V220" stroke="#6366F1" stroke-width="8" stroke-linejoin="round"/>
+  
+  <!-- Stacked Boxes -->
+  <rect x="260" y="180" width="30" height="30" rx="4" fill="#818CF8"/>
+  <rect x="295" y="180" width="30" height="30" rx="4" fill="#818CF8"/>
+  <rect x="278" y="145" width="30" height="30" rx="4" fill="#C7D2FE"/>
+  
+  <!-- Digital Tablet -->
+  <rect x="100" y="100" width="120" height="80" rx="8" fill="#0F172A" stroke="#94A3B8" stroke-width="4"/>
+  <rect x="115" y="150" width="15" height="20" rx="2" fill="#6366F1"/>
+  <rect x="135" y="140" width="15" height="30" rx="2" fill="#818CF8"/>
+  <rect x="155" y="125" width="15" height="45" rx="2" fill="#C7D2FE"/>
+  
+  <!-- Security Padlock -->
+  <rect x="200" y="150" width="30" height="25" rx="4" fill="#FACC15"/>
+  <path d="M205 150V140C205 131.716 211.716 125 220 125C228.284 125 235 131.716 235 140V150" stroke="#FACC15" stroke-width="4"/>
+</svg>

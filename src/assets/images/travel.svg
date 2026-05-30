@@ -1,0 +1,22 @@
+<svg width="400" height="300" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="400" height="300" rx="20" fill="#1E293B" fill-opacity="0.5"/>
+  
+  <!-- Compass Rose -->
+  <circle cx="100" cy="100" r="60" stroke="#94A3B8" stroke-width="2" stroke-dasharray="4 4"/>
+  <path d="M100 40L115 85L160 100L115 115L100 160L85 115L40 100L85 85L100 40Z" fill="#6366F1"/>
+  <path d="M100 70L105 95L130 100L105 105L100 130L95 105L70 100L95 95L100 70Z" fill="#FFF"/>
+  
+  <!-- Vintage Suitcase -->
+  <rect x="220" y="160" width="120" height="80" rx="4" fill="#92400E"/>
+  <rect x="240" y="145" width="80" height="15" rx="4" fill="#78350F" stroke="#FDE047" stroke-width="2"/>
+  <rect x="235" y="160" width="10" height="80" fill="#78350F"/>
+  <rect x="315" y="160" width="10" height="80" fill="#78350F"/>
+  
+  <!-- Tablet with Map -->
+  <rect x="180" y="60" width="160" height="100" rx="8" fill="#0F172A" stroke="#94A3B8" stroke-width="4"/>
+  <path d="M195 90C210 80 230 120 250 100C270 80 300 110 325 90" stroke="#0EA5E9" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="210" cy="95" r="4" fill="#EF4444"/>
+  <circle cx="310" cy="105" r="4" fill="#EF4444"/>
+  <path d="M210 95L310 105" stroke="#FDE047" stroke-width="2" stroke-dasharray="4 4"/>
+</svg>
