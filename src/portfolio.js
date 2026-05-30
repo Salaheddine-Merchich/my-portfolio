@@ -53,7 +53,9 @@ const skillsSection = {
     emoji(
       "⚡ Develop robust backend services using Java, Spring Boot, and PostgreSQL"
     ),
-    emoji("⚡ Build modern, responsive front-end applications with React and TypeScript"),
+    emoji(
+      "⚡ Build modern, responsive front-end applications with React and TypeScript"
+    ),
     emoji(
       "⚡ Implement comprehensive software testing strategies (Unit, Integration, E2E) to ensure high-quality delivery"
     ),
@@ -208,7 +210,8 @@ const bigProjects = {
     {
       image: require("./assets/images/stock.svg"),
       projectName: "Gestion de Stock",
-      projectDesc: "A web application for inventory tracking (products, entries, exits) developed with React, TypeScript, and Supabase. Implements secure CRUD operations and user authentication with a responsive interface.",
+      projectDesc:
+        "A web application for inventory tracking (products, entries, exits) developed with React, TypeScript, and Supabase. Implements secure CRUD operations and user authentication with a responsive interface.",
       footerLink: [
         {
           name: "GitHub",
@@ -219,7 +222,8 @@ const bigProjects = {
     {
       image: require("./assets/images/anomaly.svg"),
       projectName: "Gestion-Anomalie",
-      projectDesc: "A robust anomaly tracking and management system designed to log, categorize, and streamline the resolution of technical issues or system failures. Features structured workflows, priority levels, and real-time status updates.",
+      projectDesc:
+        "A robust anomaly tracking and management system designed to log, categorize, and streamline the resolution of technical issues or system failures. Features structured workflows, priority levels, and real-time status updates.",
       footerLink: [
         {
           name: "GitHub",
@@ -230,7 +234,8 @@ const bigProjects = {
     {
       image: require("./assets/images/taskmaster.svg"),
       projectName: "TaskMaster-App",
-      projectDesc: "A dynamic task management and productivity application that allows users to seamlessly create, assign, and track daily tasks. Built with modern state management, intuitive sorting filters, and a responsive interface.",
+      projectDesc:
+        "A dynamic task management and productivity application that allows users to seamlessly create, assign, and track daily tasks. Built with modern state management, intuitive sorting filters, and a responsive interface.",
       footerLink: [
         {
           name: "GitHub",
@@ -241,7 +246,8 @@ const bigProjects = {
     {
       image: require("./assets/images/quiz.svg"),
       projectName: "Football Arena Quiz",
-      projectDesc: "An interactive Android application for football trivia, built with Java and Gradle. Focused on mobile UI/UX and complex trivia logic, featuring detailed technical documentation and robust asset management.",
+      projectDesc:
+        "An interactive Android application for football trivia, built with Java and Gradle. Focused on mobile UI/UX and complex trivia logic, featuring detailed technical documentation and robust asset management.",
       footerLink: [
         {
           name: "GitHub",
@@ -252,7 +258,8 @@ const bigProjects = {
     {
       image: require("./assets/images/travel.svg"),
       projectName: "Voyage-Zenith",
-      projectDesc: "A travel management platform built with React, TypeScript, and Supabase. Leverages serverless BaaS for scalable authentication and database services, providing a responsive interface for complex travel planning.",
+      projectDesc:
+        "A travel management platform built with React, TypeScript, and Supabase. Leverages serverless BaaS for scalable authentication and database services, providing a responsive interface for complex travel planning.",
       footerLink: [
         {
           name: "GitHub",
@@ -274,7 +281,8 @@ const achievementSection = {
   achievementsCards: [
     {
       title: "20+ Certifications",
-      subtitle: "Completed multiple professional certifications in software development on Coursera.",
+      subtitle:
+        "Completed multiple professional certifications in software development on Coursera.",
       image: require("./assets/images/skill.svg"),
       imageAlt: "Certification Logo",
       footerLink: [
@@ -325,7 +333,8 @@ const resumeSection = {
 
 const contactInfo = {
   title: emoji("Contact Me ☎️"),
-  subtitle: "Discuss a project or just want to say hi? My Inbox is open for all.",
+  subtitle:
+    "Discuss a project or just want to say hi? My Inbox is open for all.",
   number: "+212 676-906661",
   email_address: "merchichsalaheddine@gmail.com"
 };

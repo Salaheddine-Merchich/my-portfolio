@@ -41,16 +41,24 @@ export default function Projects() {
     <div className="py-20 px-6 max-w-7xl mx-auto" id="opensource">
       <Suspense fallback={<Loading />}>
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          initial={{opacity: 0, y: 20}}
+          whileInView={{opacity: 1, y: 0}}
+          viewport={{once: true}}
+          transition={{duration: 0.6}}
           className="text-center mb-16"
         >
-          <h1 className={`text-4xl lg:text-5xl font-bold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>
+          <h1
+            className={`text-4xl lg:text-5xl font-bold mb-4 ${
+              isDark ? "text-white" : "text-gray-900"
+            }`}
+          >
             Open Source Projects
           </h1>
-          <p className={`text-lg max-w-2xl mx-auto ${isDark ? "text-gray-400" : "text-gray-600"}`}>
+          <p
+            className={`text-lg max-w-2xl mx-auto ${
+              isDark ? "text-gray-400" : "text-gray-600"
+            }`}
+          >
             A selection of my pinned repositories on GitHub.
           </p>
         </motion.div>

@@ -43,10 +43,7 @@ export default function socialMedia() {
       ) : null}
 
       {socialMediaLinks.phone ? (
-        <a
-          href={`tel:${socialMediaLinks.phone}`}
-          className="icon-button phone"
-        >
+        <a href={`tel:${socialMediaLinks.phone}`} className="icon-button phone">
           <i className="fas fa-phone"></i>
           <span></span>
         </a>
