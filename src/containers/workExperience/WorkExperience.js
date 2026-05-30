@@ -2,7 +2,7 @@ import React, {useContext} from "react";
 import {motion} from "framer-motion";
 import {workExperiences} from "../../portfolio";
 import StyleContext from "../../contexts/StyleContext";
-import {Briefcase, Calendar, CircleCheck} from "lucide-react";
+import {Calendar, CircleCheck} from "lucide-react";
 
 export default function WorkExperience() {
   const {isDark} = useContext(StyleContext);
