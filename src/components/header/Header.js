@@ -42,7 +42,7 @@ function Header() {
               isDark ? "text-white" : "text-gray-900"
             }`}
           >
-            {greeting.username.split(" ")[0]}
+            {greeting.username}
           </span>
           <span className="text-primary font-bold">/&gt;</span>
         </a>
