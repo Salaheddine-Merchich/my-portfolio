@@ -54,7 +54,7 @@ export default function Greeting() {
             </div>
           </div>
         </div>
-        <div className="greeting-image-div flex-1 max-w-md lg:max-w-none w-full aspect-[5/4] min-h-[256px]">
+        <div className="greeting-image-div flex-1 max-w-md lg:max-w-none w-full mx-auto">
           <div className="relative group">
             <div className="absolute inset-0 bg-primary/20 blur-2xl rounded-full -z-10 group-hover:bg-primary/30 transition-all duration-500"></div>
             <img
@@ -62,7 +62,7 @@ export default function Greeting() {
               src="/hero-illustration.svg"
               width="500"
               height="400"
-              className="w-full h-auto drop-shadow-2xl transform group-hover:rotate-1 transition-transform duration-500"
+              className="w-full h-auto max-h-[280px] mx-auto object-contain drop-shadow-2xl transform group-hover:rotate-1 transition-transform duration-500"
               loading="eager"
               fetchPriority="high"
               decoding="async"

@@ -17,7 +17,7 @@ export default function Skills() {
       aria-labelledby="skills-heading"
     >
       <div className="flex flex-col lg:flex-row items-center gap-16">
-        <FadeInView variant="left" className="flex-1 w-full">
+        <FadeInView variant="left" className="flex-1 w-full hidden lg:block">
           <div className="relative group">
             <div className="absolute inset-0 bg-secondary/20 blur-3xl rounded-full -z-10 animate-pulse"></div>
             <img
