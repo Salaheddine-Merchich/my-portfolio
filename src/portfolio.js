@@ -304,7 +304,7 @@ const achievementSection = {
       footerLink: [
         {
           name: "View Certifications",
-          url: "https://www.coursera.org/"
+          url: "https://www.linkedin.com/in/salaheddine-merchich/details/certifications/"
         }
       ]
     }

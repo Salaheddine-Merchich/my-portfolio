@@ -34,16 +34,26 @@ export default function Achievement() {
       </FadeInView>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {achievementSection.achievementsCards.map((card, i) => (
-          <FadeInView
-            key={i}
-            delay={i * 0.1}
-            className={`p-6 rounded-2xl shadow-lg transition-all duration-300 hover:-translate-y-1 ${
-              isDark
-                ? "bg-gray-800/50 border border-gray-700 hover:border-primary/50"
-                : "bg-white border border-gray-100 hover:border-primary/30"
-            } backdrop-blur-sm flex flex-col`}
-          >
+        {achievementSection.achievementsCards.map((card, i) => {
+          const cardUrl = card.footerLink?.[0]?.url;
+          const cardClassName = `p-6 rounded-2xl shadow-lg transition-all duration-300 hover:-translate-y-1 ${
+            isDark
+              ? "bg-gray-800/50 border border-gray-700 hover:border-primary/50"
+              : "bg-white border border-gray-100 hover:border-primary/30"
+          } backdrop-blur-sm flex flex-col${
+            cardUrl ? " cursor-pointer no-underline" : ""
+          }`;
+
+          return (
+            <FadeInView
+              key={i}
+              as={cardUrl ? "a" : "div"}
+              href={cardUrl || undefined}
+              target={cardUrl ? "_blank" : undefined}
+              rel={cardUrl ? "noopener noreferrer" : undefined}
+              delay={i * 0.1}
+              className={cardClassName}
+            >
             <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center overflow-hidden mb-6 shadow-md border border-gray-100">
               {card.image ? (
                 <img
@@ -76,21 +86,19 @@ export default function Achievement() {
             {card.footerLink && (
               <div className="flex flex-wrap gap-3 mt-auto">
                 {card.footerLink.map((link, j) => (
-                  <a
+                  <span
                     key={j}
-                    href={link.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-primary font-bold text-sm hover:underline"
+                    className="flex items-center gap-2 text-primary font-bold text-sm"
                   >
                     <ExternalLink size={14} />
                     {link.name}
-                  </a>
+                  </span>
                 ))}
               </div>
             )}
           </FadeInView>
-        ))}
+          );
+        })}
       </div>
     </section>
   );
