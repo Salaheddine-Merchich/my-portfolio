@@ -3,56 +3,69 @@ import {Mail, Phone} from "lucide-react";
 import {GithubIcon, LinkedinIcon} from "../icons/BrandIcons";
 import {socialMediaLinks} from "../../portfolio";
 
-const socialIconButtonClass =
-  "inline-flex items-center justify-center w-12 h-12 min-w-[48px] min-h-[48px] rounded-full bg-primary/10 text-primary transition-all hover:bg-primary/20 hover:scale-105";
-
 export default function SocialMedia() {
   if (!socialMediaLinks.display) {
     return null;
   }
   return (
-    <div className="flex flex-row flex-wrap items-center gap-3">
+    <div className="flex flex-row flex-nowrap items-center gap-3">
       {socialMediaLinks.github ? (
         <a
           href={socialMediaLinks.github}
-          className={socialIconButtonClass}
+          className="inline-flex min-w-[48px] min-h-[48px] rounded-full transition-all hover:scale-105"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="GitHub profile"
         >
-          <GithubIcon size={24} />
+          <div
+            className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary hover:bg-primary/20"
+          >
+            <GithubIcon size={24} />
+          </div>
         </a>
       ) : null}
 
       {socialMediaLinks.linkedin ? (
         <a
           href={socialMediaLinks.linkedin}
-          className={socialIconButtonClass}
+          className="inline-flex min-w-[48px] min-h-[48px] rounded-full transition-all hover:scale-105"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="LinkedIn profile"
         >
-          <LinkedinIcon size={24} />
+          <div
+            className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary hover:bg-primary/20"
+          >
+            <LinkedinIcon size={24} />
+          </div>
         </a>
       ) : null}
 
       {socialMediaLinks.gmail ? (
         <a
           href={`mailto:${socialMediaLinks.gmail}`}
-          className={socialIconButtonClass}
+          className="inline-flex min-w-[48px] min-h-[48px] rounded-full transition-all hover:scale-105"
           aria-label="Send email"
         >
-          <Mail size={24} aria-hidden="true" />
+          <div
+            className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary hover:bg-primary/20"
+          >
+            <Mail size={24} className="shrink-0" aria-hidden="true" />
+          </div>
         </a>
       ) : null}
 
       {socialMediaLinks.phone ? (
         <a
           href={`tel:${socialMediaLinks.phone}`}
-          className={socialIconButtonClass}
+          className="inline-flex min-w-[48px] min-h-[48px] rounded-full transition-all hover:scale-105"
           aria-label="Call phone number"
         >
-          <Phone size={24} aria-hidden="true" />
+          <div
+            className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary hover:bg-primary/20"
+          >
+            <Phone size={24} className="shrink-0" aria-hidden="true" />
+          </div>
         </a>
       ) : null}
     </div>
