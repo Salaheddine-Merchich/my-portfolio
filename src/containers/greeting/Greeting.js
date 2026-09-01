@@ -2,11 +2,9 @@ import React, {useContext} from "react";
 import {motion} from "framer-motion";
 import emoji from "react-easy-emoji";
 import "./Greeting.scss";
-import landingPerson from "../../assets/lottie/landingPerson";
-import DisplayLottie from "../../components/displayLottie/DisplayLottie";
 import SocialMedia from "../../components/socialMedia/SocialMedia";
 import Button from "../../components/button/Button";
-import {illustration, greeting} from "../../portfolio";
+import {greeting} from "../../portfolio";
 import StyleContext from "../../contexts/StyleContext";
 
 export default function Greeting() {
@@ -56,9 +54,7 @@ export default function Greeting() {
               {greeting.resumeLink && (
                 <Button
                   text="Download CV"
-                  href={
-                    greeting.resumeLink === "#" ? "#" : require("./resume.pdf")
-                  }
+                  href={greeting.resumeLink === "#" ? "#" : "/resume.pdf"}
                   download="Salaheddine_Merchich_Resume.pdf"
                   className="transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-primary/50"
                 />
@@ -72,24 +68,19 @@ export default function Greeting() {
           transition={{delay: 0.4, duration: 0.8}}
           className="greeting-image-div flex-1 max-w-md lg:max-w-none w-full"
         >
-          {illustration.animated ? (
-            <div className="relative group">
-              <div className="absolute inset-0 bg-primary/20 blur-3xl rounded-full -z-10 group-hover:bg-primary/30 transition-all duration-500 animate-pulse"></div>
-              <DisplayLottie animationData={landingPerson} />
-            </div>
-          ) : (
-            <div className="relative group">
-              <div className="absolute inset-0 bg-primary/20 blur-2xl rounded-full -z-10 group-hover:bg-primary/30 transition-all duration-500"></div>
-              <img
-                alt="man sitting on table"
-                src={
-                  require("../../assets/images/manOnTable.svg").default ||
-                  require("../../assets/images/manOnTable.svg")
-                }
-                className="w-full h-auto drop-shadow-2xl transform group-hover:rotate-1 transition-transform duration-500"
-              />
-            </div>
-          )}
+          <div className="relative group">
+            <div className="absolute inset-0 bg-primary/20 blur-2xl rounded-full -z-10 group-hover:bg-primary/30 transition-all duration-500"></div>
+            <img
+              alt="Software developer illustration"
+              src={
+                require("../../assets/images/skills_viz.svg").default ||
+                require("../../assets/images/skills_viz.svg")
+              }
+              className="w-full h-auto drop-shadow-2xl transform group-hover:rotate-1 transition-transform duration-500"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
         </motion.div>
       </div>
     </motion.div>

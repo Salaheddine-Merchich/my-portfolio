@@ -1,9 +1,7 @@
 import React, {useContext} from "react";
 import {motion} from "framer-motion";
 import SoftwareSkill from "../../components/softwareSkills/SoftwareSkill";
-import {illustration, skillsSection} from "../../portfolio";
-import codingPerson from "../../assets/lottie/codingPerson";
-import DisplayLottie from "../../components/displayLottie/DisplayLottie";
+import {skillsSection} from "../../portfolio";
 import StyleContext from "../../contexts/StyleContext";
 import {CircleCheck} from "lucide-react";
 
@@ -22,18 +20,19 @@ export default function Skills() {
           transition={{duration: 0.8}}
           className="flex-1 w-full"
         >
-          {illustration.animated ? (
-            <div className="relative group">
-              <div className="absolute inset-0 bg-secondary/20 blur-3xl rounded-full -z-10 animate-pulse"></div>
-              <DisplayLottie animationData={codingPerson} />
-            </div>
-          ) : (
+          <div className="relative group">
+            <div className="absolute inset-0 bg-secondary/20 blur-3xl rounded-full -z-10 animate-pulse"></div>
             <img
-              alt="Man Working"
-              src={require("../../assets/images/developerActivity.svg")}
+              alt="Developer working on code"
+              src={
+                require("../../assets/images/skills_viz.svg").default ||
+                require("../../assets/images/skills_viz.svg")
+              }
               className="w-full max-w-md mx-auto drop-shadow-2xl"
+              loading="lazy"
+              decoding="async"
             />
-          )}
+          </div>
         </motion.div>
 
         <motion.div

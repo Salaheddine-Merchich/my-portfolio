@@ -3,20 +3,19 @@
 // To change portfolio colors globally go to the  _globalColor.scss file
 
 import emoji from "react-easy-emoji";
-import splashAnimation from "./assets/lottie/splashAnimation"; // Rename to your file name for custom animation
 
 // Splash Screen
 
 const splashScreen = {
-  enabled: true, // set false to disable splash screen
-  animation: splashAnimation,
+  enabled: false, // set false to disable splash screen
+  animation: null,
   duration: 2000 // Set animation duration as per your animation
 };
 
 // Summary And Greeting Section
 
 const illustration = {
-  animated: true // Set to false to use static SVG
+  animated: false // Set to false to use static SVG
 };
 
 const greeting = {
@@ -67,66 +66,23 @@ const skillsSection = {
     )
   ],
 
-  /* Make Sure to include correct Font Awesome Classname to view your icon
-https://fontawesome.com/icons?d=gallery */
-
   softwareSkills: [
-    {
-      skillName: "Java",
-      fontAwesomeClassname: "fab fa-java"
-    },
-    {
-      skillName: "Spring",
-      fontAwesomeClassname: "fas fa-leaf"
-    },
-    {
-      skillName: "Python",
-      fontAwesomeClassname: "fab fa-python"
-    },
-    {
-      skillName: "C++",
-      fontAwesomeClassname: "fas fa-code"
-    },
-    {
-      skillName: "JavaScript",
-      fontAwesomeClassname: "fab fa-js"
-    },
-    {
-      skillName: "TypeScript",
-      fontAwesomeClassname: "fab fa-js"
-    },
-    {
-      skillName: "React",
-      fontAwesomeClassname: "fab fa-react"
-    },
-    {
-      skillName: "Angular",
-      fontAwesomeClassname: "fab fa-angular"
-    },
-    {
-      skillName: "React Native",
-      fontAwesomeClassname: "fab fa-react"
-    },
-    {
-      skillName: "PostgreSQL",
-      fontAwesomeClassname: "fas fa-database"
-    },
-    {
-      skillName: "Neo4j",
-      fontAwesomeClassname: "fas fa-project-diagram"
-    },
-    {
-      skillName: "Docker",
-      fontAwesomeClassname: "fab fa-docker"
-    },
-    {
-      skillName: "Postman",
-      fontAwesomeClassname: "fas fa-terminal"
-    },
-    {
-      skillName: "Git",
-      fontAwesomeClassname: "fab fa-git"
-    }
+    {skillName: "Java"},
+    {skillName: "Spring"},
+    {skillName: "Python"},
+    {skillName: "C++"},
+    {skillName: "JavaScript"},
+    {skillName: "TypeScript"},
+    {skillName: "React"},
+    {skillName: "React Native"},
+    {skillName: "PostgreSQL"},
+    {skillName: "MySQL"},
+    {skillName: "Neo4j"},
+    {skillName: "Supabase"},
+    {skillName: "Docker"},
+    {skillName: "Postman"},
+    {skillName: "GitHub"},
+    {skillName: "Git"}
   ],
   display: true // Set false to hide this section, defaults to true
 };
@@ -232,6 +188,18 @@ const bigProjects = {
   subtitle: "INNOVATIVE SOLUTIONS BUILT WITH MODERN TECHNOLOGIES",
   projects: [
     {
+      image: require("./assets/images/skills_viz.svg"),
+      projectName: "EIA-SmartFix",
+      projectDesc:
+        "Industrial EIA maintenance web platform (OCP) with an on-premise RAG-based AI assistant for failure diagnosis and intervention management. Built with Spring Boot 3, React 19, PostgreSQL/pgvector, Ollama, Docker Compose, and GitHub Actions CI.",
+      footerLink: [
+        {
+          name: "GitHub",
+          url: "https://github.com/Salaheddine-Merchich/EIA-SmartFix"
+        }
+      ]
+    },
+    {
       image: require("./assets/images/testing.svg"),
       projectName: "Leave-Management-System",
       projectDesc:
@@ -245,13 +213,13 @@ const bigProjects = {
     },
     {
       image: require("./assets/images/stock.svg"),
-      projectName: "Gestion de Stock",
+      projectName: "Gestion-de-stock",
       projectDesc:
         "A real-time IT inventory management platform (React, TypeScript, Supabase) with a RAG-based AI assistant (Ollama), replacing manual paper/Excel tracking. Implements secure CRUD operations, user authentication, and a responsive interface.",
       footerLink: [
         {
           name: "GitHub",
-          url: "https://github.com/Salaheddine-Merchich/GESTION-DE-STOCK"
+          url: "https://github.com/Salaheddine-Merchich/Gestion-de-stock"
         }
       ]
     },
@@ -263,7 +231,7 @@ const bigProjects = {
       footerLink: [
         {
           name: "GitHub",
-          url: "https://github.com/Salaheddine-Merchich/GESTION-ANOMALIE"
+          url: "https://github.com/Salaheddine-Merchich/Gestion-Anomalie"
         }
       ]
     },
@@ -280,6 +248,18 @@ const bigProjects = {
       ]
     },
     {
+      image: require("./assets/images/taskmaster.svg"),
+      projectName: "Task_Flow",
+      projectDesc:
+        "A task workflow management application built with TypeScript, HTML/CSS, and JavaScript for organizing and tracking task flows with a modern web interface.",
+      footerLink: [
+        {
+          name: "GitHub",
+          url: "https://github.com/Salaheddine-Merchich/Task_Flow"
+        }
+      ]
+    },
+    {
       image: require("./assets/images/quiz.svg"),
       projectName: "Football Arena Quiz",
       projectDesc:
@@ -287,7 +267,7 @@ const bigProjects = {
       footerLink: [
         {
           name: "GitHub",
-          url: "https://github.com/Salaheddine-Merchich/FOOTBALL_ARENA_QUIZ"
+          url: "https://github.com/Salaheddine-Merchich/Football_Arena_Quiz"
         }
       ]
     },
@@ -299,7 +279,7 @@ const bigProjects = {
       footerLink: [
         {
           name: "GitHub",
-          url: "https://github.com/Salaheddine-Merchich/VOYAGE-ZENITH"
+          url: "https://github.com/Salaheddine-Merchich/Voyage-Zenith"
         }
       ]
     }

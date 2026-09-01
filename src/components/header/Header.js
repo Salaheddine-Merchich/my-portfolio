@@ -47,7 +47,7 @@ function Header() {
           <span className="text-primary font-bold">/&gt;</span>
         </a>
         <input className="menu-btn" type="checkbox" id="menu-btn" />
-        <label className="menu-icon" htmlFor="menu-btn">
+        <label className="menu-icon" htmlFor="menu-btn" aria-label="Open navigation menu">
           <span className={isDark ? "navicon navicon-dark" : "navicon"}></span>
         </label>
         <ul className={`menu ${isDark ? "dark-menu" : ""}`}>
@@ -148,10 +148,7 @@ function Header() {
           {viewResume && (
             <li>
               <a
-                href={
-                  require("../../containers/greeting/resume.pdf").default ||
-                  require("../../containers/greeting/resume.pdf")
-                }
+                href="/resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`font-bold uppercase tracking-wider text-sm hover:text-primary transition-colors ${

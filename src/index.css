@@ -7,6 +7,25 @@
   --secondary-color: #70a1ff;
 }
 
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  z-index: 10000;
+  padding: 0.75rem 1rem;
+  background: var(--primary-color);
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 0.5rem;
+}
+
+.skip-link:focus {
+  top: 1rem;
+  outline: 2px solid var(--secondary-color);
+  outline-offset: 2px;
+}
+
 @layer utilities {
   .animate-wave {
     animation: wave 2.5s infinite;
@@ -68,6 +87,23 @@ body {
   font: 19px / 23px Montserrat, "Montserrat", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  z-index: 10000;
+  padding: 0.75rem 1rem;
+  background: var(--primary-color);
+  color: #fff;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  top: 1rem;
 }
 /* Media Query */
 @media (max-width: 1380px) {

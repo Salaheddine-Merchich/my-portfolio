@@ -1,42 +1,51 @@
-import React, {useEffect, useState} from "react";
+import React, {lazy, Suspense, useEffect, useState} from "react";
 import Header from "../components/header/Header";
 import Greeting from "./greeting/Greeting";
-import Skills from "./skills/Skills";
-import StackProgress from "./skillProgress/skillProgress";
-import WorkExperience from "./workExperience/WorkExperience";
-import Projects from "./projects/Projects";
-import StartupProject from "./StartupProjects/StartupProject";
-import Achievement from "./achievement/Achievement";
-import Blogs from "./blogs/Blogs";
 import Footer from "../components/footer/Footer";
-import Talks from "./talks/Talks";
-import Podcast from "./podcast/Podcast";
-import Education from "./education/Education";
 import ScrollToTopButton from "./topbutton/Top";
-import Twitter from "./twitter-embed/twitter";
-import Profile from "./profile/Profile";
-import SplashScreen from "./splashScreen/SplashScreen";
-import {splashScreen} from "../portfolio";
+import {
+  splashScreen,
+  blogSection,
+  talkSection,
+  twitterDetails,
+  podcastSection
+} from "../portfolio";
 import {StyleProvider} from "../contexts/StyleContext";
 import {useLocalStorage} from "../hooks/useLocalStorage";
 import "./Main.scss";
+
+const Skills = lazy(() => import("./skills/Skills"));
+const StackProgress = lazy(() => import("./skillProgress/skillProgress"));
+const Education = lazy(() => import("./education/Education"));
+const WorkExperience = lazy(() => import("./workExperience/WorkExperience"));
+const StartupProject = lazy(() => import("./StartupProjects/StartupProject"));
+const Projects = lazy(() => import("./projects/Projects"));
+const Achievement = lazy(() => import("./achievement/Achievement"));
+const Profile = lazy(() => import("./profile/Profile"));
+const Blogs = lazy(() => import("./blogs/Blogs"));
+const Talks = lazy(() => import("./talks/Talks"));
+const Twitter = lazy(() => import("./twitter-embed/twitter"));
+const Podcast = lazy(() => import("./podcast/Podcast"));
 
 const Main = () => {
   const darkPref = window.matchMedia("(prefers-color-scheme: dark)");
   const [isDark, setIsDark] = useLocalStorage("isDark", darkPref.matches);
   const [isShowingSplashAnimation, setIsShowingSplashAnimation] =
-    useState(true);
+    useState(splashScreen.enabled);
 
   useEffect(() => {
-    if (splashScreen.enabled) {
-      const splashTimer = setTimeout(
-        () => setIsShowingSplashAnimation(false),
-        splashScreen.duration
-      );
-      return () => {
-        clearTimeout(splashTimer);
-      };
+    if (!splashScreen.enabled) {
+      setIsShowingSplashAnimation(false);
+      return;
     }
+
+    const splashTimer = setTimeout(
+      () => setIsShowingSplashAnimation(false),
+      splashScreen.duration
+    );
+    return () => {
+      clearTimeout(splashTimer);
+    };
   }, []);
 
   const changeTheme = () => {
@@ -46,24 +55,25 @@ const Main = () => {
   return (
     <div className={isDark ? "dark dark-mode" : ""}>
       <StyleProvider value={{isDark: isDark, changeTheme: changeTheme}}>
-        {isShowingSplashAnimation && splashScreen.enabled ? (
-          <SplashScreen />
-        ) : (
+        <a href="#greeting" className="skip-link">Skip to content</a>
+        {!isShowingSplashAnimation && (
           <>
             <Header />
             <Greeting />
-            <Skills />
-            <StackProgress />
-            <Education />
-            <WorkExperience />
-            <StartupProject />
-            <Projects />
-            <Achievement />
-            <Blogs />
-            <Talks />
-            <Twitter />
-            <Podcast />
-            <Profile />
+            <Suspense fallback={null}>
+              <Skills />
+              <StackProgress />
+              <Education />
+              <WorkExperience />
+              <StartupProject />
+              <Projects />
+              <Achievement />
+              {blogSection.display && <Blogs />}
+              {talkSection.display && <Talks />}
+              {twitterDetails.display && <Twitter />}
+              {podcastSection.display && <Podcast />}
+              <Profile />
+            </Suspense>
             <Footer />
             <ScrollToTopButton />
           </>
