@@ -1,5 +1,13 @@
 @import "../../_globalColor";
 
+.toggle-switch-wrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 48px;
+  min-height: 48px;
+}
+
 .switch {
   position: relative;
   display: inline-block;

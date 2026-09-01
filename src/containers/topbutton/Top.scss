@@ -11,9 +11,15 @@
   background-color: $buttonColor;
   color: white;
   cursor: pointer;
-  padding: 15px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 48px;
+  min-height: 48px;
+  padding: 12px;
   border-radius: 15px;
   font-size: 25px;
+  box-sizing: border-box;
 }
 
 #topButton:hover {

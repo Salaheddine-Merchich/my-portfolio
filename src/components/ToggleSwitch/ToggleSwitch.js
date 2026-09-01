@@ -9,6 +9,7 @@ const ToggleSwitch = () => {
   const styleContext = useContext(StyleContext);
 
   return (
+    <div className="toggle-switch-wrap">
     <label className="switch">
       <input
         type="checkbox"
@@ -23,6 +24,7 @@ const ToggleSwitch = () => {
         <span className="emoji">{isChecked ? emoji("🌜") : emoji("☀️")}</span>
       </span>
     </label>
+    </div>
   );
 };
 export default ToggleSwitch;

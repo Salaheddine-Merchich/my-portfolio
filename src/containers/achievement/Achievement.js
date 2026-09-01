@@ -26,7 +26,7 @@ export default function Achievement() {
         </h2>
         <p
           className={`text-lg max-w-2xl mx-auto ${
-            isDark ? "text-gray-400" : "text-gray-600"
+            isDark ? "text-gray-300" : "text-gray-600"
           }`}
         >
           {achievementSection.subtitle}
@@ -67,7 +67,7 @@ export default function Achievement() {
             </h3>
             <p
               className={`text-sm leading-relaxed mb-6 flex-1 ${
-                isDark ? "text-gray-400" : "text-gray-600"
+                isDark ? "text-gray-300" : "text-gray-600"
               }`}
             >
               {card.subtitle}

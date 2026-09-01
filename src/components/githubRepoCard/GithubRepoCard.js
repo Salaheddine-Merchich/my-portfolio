@@ -32,7 +32,7 @@ export default function GithubRepoCard({repo, isDark}) {
 
       <p
         className={`text-sm leading-relaxed mb-6 flex-1 line-clamp-3 ${
-          isDark ? "text-gray-400" : "text-gray-600"
+          isDark ? "text-gray-300" : "text-gray-600"
         }`}
       >
         {repo.node.description || "No description provided."}
@@ -48,7 +48,7 @@ export default function GithubRepoCard({repo, isDark}) {
               />
               <span
                 className={`text-xs font-medium ${
-                  isDark ? "text-gray-400" : "text-gray-500"
+                  isDark ? "text-gray-300" : "text-gray-600"
                 }`}
               >
                 {repo.node.primaryLanguage.name}
@@ -56,11 +56,19 @@ export default function GithubRepoCard({repo, isDark}) {
             </div>
           )}
           <div className="flex items-center gap-3">
-            <div className="flex items-center gap-1 text-xs font-medium text-gray-500">
+            <div
+              className={`flex items-center gap-1 text-xs font-medium ${
+                isDark ? "text-gray-300" : "text-gray-600"
+              }`}
+            >
               <Star size={14} />
               {repo.node.stargazers.totalCount}
             </div>
-            <div className="flex items-center gap-1 text-xs font-medium text-gray-500">
+            <div
+              className={`flex items-center gap-1 text-xs font-medium ${
+                isDark ? "text-gray-300" : "text-gray-600"
+              }`}
+            >
               <GitFork size={14} />
               {repo.node.forkCount}
             </div>

@@ -25,7 +25,7 @@ export default function Education() {
         >
           Education
         </h2>
-        <p className={`text-lg ${isDark ? "text-gray-400" : "text-gray-600"}`}>
+        <p className={`text-lg ${isDark ? "text-gray-300" : "text-gray-600"}`}>
           My academic background and qualifications.
         </p>
       </FadeInView>
@@ -96,7 +96,7 @@ export default function Education() {
                         <div className="w-1.5 h-1.5 bg-primary rounded-full" />
                         <span
                           className={`text-sm ${
-                            isDark ? "text-gray-400" : "text-gray-600"
+                            isDark ? "text-gray-300" : "text-gray-600"
                           }`}
                         >
                           {bullet}

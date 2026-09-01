@@ -144,7 +144,11 @@ export default function Contact() {
                   <Phone size={24} />
                 </div>
                 <div className="min-w-0">
-                  <p className="text-xs font-bold uppercase tracking-wider text-gray-500">
+                  <p
+                    className={`text-xs font-bold uppercase tracking-wider ${
+                      isDark ? "text-gray-300" : "text-gray-600"
+                    }`}
+                  >
                     Call Me
                   </p>
                   <p
@@ -169,7 +173,11 @@ export default function Contact() {
                 <Mail size={24} />
               </div>
               <div className="min-w-0">
-                <p className="text-xs font-bold uppercase tracking-wider text-gray-500">
+                <p
+                  className={`text-xs font-bold uppercase tracking-wider ${
+                    isDark ? "text-gray-300" : "text-gray-600"
+                  }`}
+                >
                   Email Me
                 </p>
                 <p

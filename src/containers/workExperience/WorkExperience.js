@@ -25,7 +25,7 @@ export default function WorkExperience() {
         >
           Professional Experience
         </h2>
-        <p className={`text-lg ${isDark ? "text-gray-400" : "text-gray-600"}`}>
+        <p className={`text-lg ${isDark ? "text-gray-300" : "text-gray-600"}`}>
           My journey in the software engineering world.
         </p>
       </FadeInView>
@@ -101,7 +101,7 @@ export default function WorkExperience() {
                       />
                       <span
                         className={`text-sm ${
-                          isDark ? "text-gray-400" : "text-gray-600"
+                          isDark ? "text-gray-300" : "text-gray-600"
                         }`}
                       >
                         {bullet}
