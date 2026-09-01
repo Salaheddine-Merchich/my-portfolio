@@ -26,7 +26,7 @@ export default function GithubProfileCard({prof}) {
         } main p-8 rounded-2xl shadow-2xl`}
         id="contact"
       >
-        <h1 className="prof-title">Reach Out to me!</h1>
+        <h2 className="prof-title">Reach Out to me!</h2>
         <div className="row">
           <div className="main-content-profile">
             <div className="blog-header">

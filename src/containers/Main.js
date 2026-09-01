@@ -1,7 +1,6 @@
 import React, {lazy, Suspense, useEffect, useState} from "react";
 import Header from "../components/header/Header";
 import Greeting from "./greeting/Greeting";
-import Footer from "../components/footer/Footer";
 import ScrollToTopButton from "./topbutton/Top";
 import {
   splashScreen,
@@ -22,6 +21,7 @@ const StartupProject = lazy(() => import("./StartupProjects/StartupProject"));
 const Projects = lazy(() => import("./projects/Projects"));
 const Achievement = lazy(() => import("./achievement/Achievement"));
 const Profile = lazy(() => import("./profile/Profile"));
+const Footer = lazy(() => import("../components/footer/Footer"));
 const Blogs = lazy(() => import("./blogs/Blogs"));
 const Talks = lazy(() => import("./talks/Talks"));
 const Twitter = lazy(() => import("./twitter-embed/twitter"));
@@ -57,7 +57,7 @@ const Main = () => {
       <StyleProvider value={{isDark: isDark, changeTheme: changeTheme}}>
         <a href="#greeting" className="skip-link">Skip to content</a>
         {!isShowingSplashAnimation && (
-          <>
+          <main id="main-content">
             <Header />
             <Greeting />
             <Suspense fallback={null}>
@@ -73,10 +73,10 @@ const Main = () => {
               {twitterDetails.display && <Twitter />}
               {podcastSection.display && <Podcast />}
               <Profile />
+              <Footer />
             </Suspense>
-            <Footer />
             <ScrollToTopButton />
-          </>
+          </main>
         )}
       </StyleProvider>
     </div>

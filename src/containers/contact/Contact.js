@@ -1,9 +1,7 @@
 import React, {useContext, useState} from "react";
 import {motion} from "framer-motion";
 import SocialMedia from "../../components/socialMedia/SocialMedia";
-import {illustration, contactInfo} from "../../portfolio";
-import emailLottie from "../../assets/lottie/email";
-import DisplayLottie from "../../components/displayLottie/DisplayLottie";
+import {contactInfo} from "../../portfolio";
 import StyleContext from "../../contexts/StyleContext";
 import {Mail, Phone, Send} from "lucide-react";
 
@@ -24,13 +22,13 @@ export default function Contact() {
         transition={{duration: 0.6}}
         className="text-center mb-16"
       >
-        <h1
+        <h2
           className={`text-4xl lg:text-5xl font-bold mb-4 ${
             isDark ? "text-white" : "text-gray-900"
           }`}
         >
           {contactInfo.title}
-        </h1>
+        </h2>
         <p
           className={`text-lg max-w-2xl mx-auto ${
             isDark ? "text-gray-400" : "text-gray-600"
@@ -58,6 +56,7 @@ export default function Contact() {
             <form className="space-y-6">
               <div>
                 <label
+                  htmlFor="contact-name"
                   className={`block text-sm font-bold mb-2 ${
                     isDark ? "text-gray-300" : "text-gray-700"
                   }`}
@@ -65,6 +64,7 @@ export default function Contact() {
                   Name
                 </label>
                 <input
+                  id="contact-name"
                   type="text"
                   name="name"
                   placeholder="Your Name"
@@ -78,6 +78,7 @@ export default function Contact() {
               </div>
               <div>
                 <label
+                  htmlFor="contact-email"
                   className={`block text-sm font-bold mb-2 ${
                     isDark ? "text-gray-300" : "text-gray-700"
                   }`}
@@ -85,6 +86,7 @@ export default function Contact() {
                   Email
                 </label>
                 <input
+                  id="contact-email"
                   type="email"
                   name="email"
                   placeholder="your@email.com"
@@ -98,6 +100,7 @@ export default function Contact() {
               </div>
               <div>
                 <label
+                  htmlFor="contact-message"
                   className={`block text-sm font-bold mb-2 ${
                     isDark ? "text-gray-300" : "text-gray-700"
                   }`}
@@ -105,6 +108,7 @@ export default function Contact() {
                   Message
                 </label>
                 <textarea
+                  id="contact-message"
                   name="message"
                   rows="4"
                   placeholder="Tell me about your project..."
@@ -125,6 +129,7 @@ export default function Contact() {
               >
                 <Send
                   size={20}
+                  aria-hidden="true"
                   className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"
                 />
                 Send Message
@@ -197,20 +202,16 @@ export default function Contact() {
           transition={{duration: 0.8}}
           className="flex-1 hidden lg:flex items-center justify-center"
         >
-          {illustration.animated ? (
-            <div className="w-full max-w-md">
-              <DisplayLottie animationData={emailLottie} />
-            </div>
-          ) : (
-            <img
-              alt="Contact"
-              src={
-                require("../../assets/images/contactMailDark.svg").default ||
-                require("../../assets/images/contactMailDark.svg")
-              }
-              className="w-full max-w-md drop-shadow-2xl"
-            />
-          )}
+          <img
+            alt="Contact illustration"
+            src={
+              require("../../assets/images/googleAssistant.svg").default ||
+              require("../../assets/images/googleAssistant.svg")
+            }
+            className="w-full max-w-md drop-shadow-2xl"
+            loading="lazy"
+            decoding="async"
+          />
         </motion.div>
       </div>
     </div>

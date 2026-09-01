@@ -42,13 +42,13 @@ export default function Skills() {
           transition={{duration: 0.8}}
           className="flex-1"
         >
-          <h1
+          <h2
             className={`text-4xl lg:text-5xl font-bold mb-6 ${
               isDark ? "text-white" : "text-gray-900"
             }`}
           >
             {skillsSection.title}
-          </h1>
+          </h2>
           <p
             className={`text-lg lg:text-xl font-semibold mb-8 uppercase tracking-widest text-primary`}
           >

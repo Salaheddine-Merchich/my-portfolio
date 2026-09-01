@@ -19,13 +19,13 @@ export default function StackProgress() {
           transition={{duration: 0.8}}
           className="flex-1 w-full"
         >
-          <h1
+          <h2
             className={`text-3xl lg:text-4xl font-bold mb-10 ${
               isDark ? "text-white" : "text-gray-900"
             }`}
           >
             Technical Proficiency
-          </h1>
+          </h2>
           <div className="space-y-8">
             {techStack.experience.map((exp, i) => (
               <div key={i} className="space-y-2">

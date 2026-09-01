@@ -1,6 +1,11 @@
 import React from "react";
 import "./SocialMedia.scss";
+import {Mail, Phone} from "lucide-react";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faGithub, faLinkedinIn} from "@fortawesome/free-brands-svg-icons";
 import {socialMediaLinks} from "../../portfolio";
+
+const iconClass = "w-5 h-5";
 
 export default function socialMedia() {
   if (!socialMediaLinks.display) {
@@ -14,9 +19,9 @@ export default function socialMedia() {
           className="icon-button github"
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="GitHub profile"
         >
-          <i className="fab fa-github"></i>
-          <span></span>
+          <FontAwesomeIcon icon={faGithub} className={iconClass} aria-hidden="true" />
         </a>
       ) : null}
 
@@ -26,9 +31,9 @@ export default function socialMedia() {
           className="icon-button linkedin"
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="LinkedIn profile"
         >
-          <i className="fab fa-linkedin-in"></i>
-          <span></span>
+          <FontAwesomeIcon icon={faLinkedinIn} className={iconClass} aria-hidden="true" />
         </a>
       ) : null}
 
@@ -36,100 +41,19 @@ export default function socialMedia() {
         <a
           href={`mailto:${socialMediaLinks.gmail}`}
           className="icon-button google"
+          aria-label="Send email"
         >
-          <i className="fas fa-envelope"></i>
-          <span></span>
+          <Mail className={iconClass} aria-hidden="true" />
         </a>
       ) : null}
 
       {socialMediaLinks.phone ? (
-        <a href={`tel:${socialMediaLinks.phone}`} className="icon-button phone">
-          <i className="fas fa-phone"></i>
-          <span></span>
-        </a>
-      ) : null}
-
-      {socialMediaLinks.gitlab ? (
         <a
-          href={socialMediaLinks.gitlab}
-          className="icon-button gitlab"
-          target="_blank"
-          rel="noopener noreferrer"
+          href={`tel:${socialMediaLinks.phone}`}
+          className="icon-button phone"
+          aria-label="Call phone number"
         >
-          <i className="fab fa-gitlab"></i>
-          <span></span>
-        </a>
-      ) : null}
-
-      {socialMediaLinks.facebook ? (
-        <a
-          href={socialMediaLinks.facebook}
-          className="icon-button facebook"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <i className="fab fa-facebook-f"></i>
-          <span></span>
-        </a>
-      ) : null}
-
-      {socialMediaLinks.instagram ? (
-        <a
-          href={socialMediaLinks.instagram}
-          className="icon-button instagram"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <i className="fab fa-instagram"></i>
-          <span></span>
-        </a>
-      ) : null}
-
-      {socialMediaLinks.twitter ? (
-        <a
-          href={socialMediaLinks.twitter}
-          className="icon-button twitter"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <i className="fab fa-twitter"></i>
-          <span></span>
-        </a>
-      ) : null}
-
-      {socialMediaLinks.medium ? (
-        <a
-          href={socialMediaLinks.medium}
-          className="icon-button medium"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <i className="fab fa-medium"></i>
-          <span></span>
-        </a>
-      ) : null}
-
-      {socialMediaLinks.stackoverflow ? (
-        <a
-          href={socialMediaLinks.stackoverflow}
-          className="icon-button stack-overflow"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <i className="fab fa-stack-overflow"></i>
-          <span></span>
-        </a>
-      ) : null}
-
-      {socialMediaLinks.kaggle ? (
-        <a
-          href={socialMediaLinks.kaggle}
-          className="icon-button kaggle"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <i className="fab fa-kaggle"></i>
-          <span></span>
+          <Phone className={iconClass} aria-hidden="true" />
         </a>
       ) : null}
     </div>

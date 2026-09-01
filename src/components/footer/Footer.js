@@ -2,6 +2,8 @@ import React, {useContext} from "react";
 import {motion} from "framer-motion";
 import StyleContext from "../../contexts/StyleContext";
 import {Heart, Mail, Phone} from "lucide-react";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faGithub, faLinkedinIn} from "@fortawesome/free-brands-svg-icons";
 import {socialMediaLinks} from "../../portfolio";
 
 export default function Footer() {
@@ -24,13 +26,14 @@ export default function Footer() {
               href={socialMediaLinks.github}
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="GitHub profile"
               className={`transition-colors ${
                 isDark
                   ? "text-gray-400 hover:text-white"
                   : "text-gray-500 hover:text-gray-900"
               }`}
             >
-              <i className="fab fa-github text-[24px]"></i>
+              <FontAwesomeIcon icon={faGithub} size="lg" aria-hidden="true" />
             </a>
           )}
           {socialMediaLinks.linkedin && (
@@ -38,37 +41,40 @@ export default function Footer() {
               href={socialMediaLinks.linkedin}
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="LinkedIn profile"
               className={`transition-colors ${
                 isDark
                   ? "text-gray-400 hover:text-white"
                   : "text-gray-500 hover:text-gray-900"
               }`}
             >
-              <i className="fab fa-linkedin-in text-[24px]"></i>
+              <FontAwesomeIcon icon={faLinkedinIn} size="lg" aria-hidden="true" />
             </a>
           )}
           {socialMediaLinks.gmail && (
             <a
               href={`mailto:${socialMediaLinks.gmail}`}
+              aria-label="Send email"
               className={`transition-colors ${
                 isDark
                   ? "text-gray-400 hover:text-white"
                   : "text-gray-500 hover:text-gray-900"
               }`}
             >
-              <Mail size={24} />
+              <Mail size={24} aria-hidden="true" />
             </a>
           )}
           {socialMediaLinks.phone && (
             <a
               href={`tel:${socialMediaLinks.phone}`}
+              aria-label="Call phone number"
               className={`transition-colors ${
                 isDark
                   ? "text-gray-400 hover:text-white"
                   : "text-gray-500 hover:text-gray-900"
               }`}
             >
-              <Phone size={24} />
+              <Phone size={24} aria-hidden="true" />
             </a>
           )}
         </div>
@@ -82,13 +88,14 @@ export default function Footer() {
           <Heart
             size={18}
             className="text-red-500 fill-red-500 animate-pulse"
+            aria-hidden="true"
           />{" "}
           by Salaheddine Merchich
         </p>
 
         <p
           className={`text-sm tracking-wide ${
-            isDark ? "text-gray-500" : "text-gray-400"
+            isDark ? "text-gray-400" : "text-gray-500"
           }`}
         >
           Built with <span className="text-primary font-bold">React</span> +{" "}
@@ -98,7 +105,7 @@ export default function Footer() {
 
         <div className="pt-4">
           <p
-            className={`text-xs ${isDark ? "text-gray-600" : "text-gray-400"}`}
+            className={`text-xs ${isDark ? "text-gray-400" : "text-gray-500"}`}
           >
             &copy; {new Date().getFullYear()} All Rights Reserved.
           </p>

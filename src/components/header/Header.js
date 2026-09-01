@@ -50,6 +50,7 @@ function Header() {
         <label className="menu-icon" htmlFor="menu-btn" aria-label="Open navigation menu">
           <span className={isDark ? "navicon navicon-dark" : "navicon"}></span>
         </label>
+        <nav aria-label="Main navigation">
         <ul className={`menu ${isDark ? "dark-menu" : ""}`}>
           <li>
             <a
@@ -169,13 +170,11 @@ function Header() {
               Contact
             </a>
           </li>
-          <li>
-            {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-            <a className="flex items-center">
-              <ToggleSwitch />
-            </a>
+          <li className="flex items-center">
+            <ToggleSwitch />
           </li>
         </ul>
+        </nav>
       </header>
     </Headroom>
   );

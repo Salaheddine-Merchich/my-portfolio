@@ -46,13 +46,13 @@ export default function Projects() {
           transition={{duration: 0.6}}
           className="text-center mb-16"
         >
-          <h1
+          <h2
             className={`text-4xl lg:text-5xl font-bold mb-4 ${
               isDark ? "text-white" : "text-gray-900"
             }`}
           >
             Open Source Projects
-          </h1>
+          </h2>
           <p
             className={`text-lg max-w-2xl mx-auto ${
               isDark ? "text-gray-400" : "text-gray-600"

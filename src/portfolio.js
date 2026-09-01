@@ -94,7 +94,7 @@ const educationInfo = {
   schools: [
     {
       schoolName: "EMSI Casablanca",
-      logo: require("./assets/images/skill.svg"),
+      logo: require("./assets/images/skills_viz.svg"),
       subHeader: "Digital Development & Information Systems Engineering",
       duration: "2022 - 2027",
       desc: "5th-year Software Engineering student with industrial backend and full-stack experience.",
@@ -105,7 +105,7 @@ const educationInfo = {
     },
     {
       schoolName: "Baccalauréat Sciences Physiques et Chimiques",
-      logo: require("./assets/images/skill.svg"),
+      logo: require("./assets/images/skills_viz.svg"),
       subHeader: "High School Diploma",
       duration: "2021 - 2022",
       desc: "Completed secondary education with a focus on Physics and Chemistry.",
@@ -147,7 +147,7 @@ const workExperiences = {
     {
       role: "Software Engineering Intern",
       company: "OCP Jorf Lasfar",
-      companylogo: require("./assets/images/skill.svg"),
+      companylogo: require("./assets/images/skills_viz.svg"),
       date: "July – September 2026",
       desc: "Phosphoric Acid Production Directorate (EIA) — 4th-year internship in Jorf Lasfar, Morocco.",
       descBullets: [
@@ -161,7 +161,7 @@ const workExperiences = {
     {
       role: "IT Intern",
       company: "Cosumar (SUTA Group)",
-      companylogo: require("./assets/images/skill.svg"),
+      companylogo: require("./assets/images/skills_viz.svg"),
       date: "July – August 2025",
       desc: "IT Department — 3rd-year internship in Casablanca, Morocco.",
       descBullets: [
@@ -299,7 +299,7 @@ const achievementSection = {
       title: "20+ Certifications",
       subtitle:
         "Completed multiple professional certifications in software development on Coursera.",
-      image: require("./assets/images/skill.svg"),
+      image: require("./assets/images/skills_viz.svg"),
       imageAlt: "Certification Logo",
       footerLink: [
         {
