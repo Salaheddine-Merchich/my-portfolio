@@ -3,6 +3,10 @@
 /*React-headroom*/
 .headroom-wrapper {
   max-height: 100px;
+
+  @media (max-width: 47.99em) {
+    max-height: none;
+  }
 }
 
 /* header */
@@ -146,7 +150,7 @@
   display: none;
 }
 
-.header .menu-btn:checked ~ .menu {
+.header .menu-btn:checked ~ nav .menu {
   max-height: 486px;
 }
 
@@ -188,5 +192,21 @@
 @media (max-width: 960px) and (min-width: 768px) {
   .header {
     font-size: 12px;
+  }
+}
+
+@media (max-width: 47.99em) {
+  .header nav {
+    clear: both;
+    position: relative;
+    z-index: 50;
+  }
+
+  .header .menu-btn:checked ~ nav .menu.dark-menu {
+    background-color: rgba($darkBackground, 0.98) !important;
+  }
+
+  .header .menu-btn:checked ~ nav .menu:not(.dark-menu) {
+    background-color: rgba($lightBackground1, 0.98);
   }
 }
