@@ -3,19 +3,19 @@
   "version": "1.0",
   "site": {
     "name": "Salaheddine Merchich Portfolio",
-    "url": "https://my-portfolio-merchich.vercel.app/"
+    "url": "https://salaheddine-merchich.vercel.app/"
   },
   "actions": [
     {
       "id": "contact",
       "description": "Navigate to the contact section",
-      "url": "https://my-portfolio-merchich.vercel.app/#contact",
+      "url": "https://salaheddine-merchich.vercel.app/#contact",
       "parameters": []
     },
     {
       "id": "download_resume",
       "description": "Download the CV PDF",
-      "url": "https://my-portfolio-merchich.vercel.app/resume.pdf",
+      "url": "https://salaheddine-merchich.vercel.app/resume.pdf",
       "parameters": []
     }
   ]

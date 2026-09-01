@@ -1,6 +1,6 @@
 # Agent Instructions — Salaheddine Merchich Portfolio
 
-This document helps AI agents navigate and interact with the portfolio at https://my-portfolio-merchich.vercel.app/
+This document helps AI agents navigate and interact with the portfolio at https://salaheddine-merchich.vercel.app/
 
 ## About
 
@@ -10,13 +10,13 @@ Salaheddine Merchich is a 5th-year software engineering student (EMSI Casablanca
 
 | Section | URL |
 |---------|-----|
-| Home / Hero | https://my-portfolio-merchich.vercel.app/#greeting |
-| Skills / About | https://my-portfolio-merchich.vercel.app/#skills |
-| Education | https://my-portfolio-merchich.vercel.app/#education |
-| Experience | https://my-portfolio-merchich.vercel.app/#experience |
-| Projects | https://my-portfolio-merchich.vercel.app/#projects |
-| Certificates | https://my-portfolio-merchich.vercel.app/#achievements |
-| Contact | https://my-portfolio-merchich.vercel.app/#contact |
+| Home / Hero | https://salaheddine-merchich.vercel.app/#greeting |
+| Skills / About | https://salaheddine-merchich.vercel.app/#skills |
+| Education | https://salaheddine-merchich.vercel.app/#education |
+| Experience | https://salaheddine-merchich.vercel.app/#experience |
+| Projects | https://salaheddine-merchich.vercel.app/#projects |
+| Certificates | https://salaheddine-merchich.vercel.app/#achievements |
+| Contact | https://salaheddine-merchich.vercel.app/#contact |
 
 ## Contact
 
@@ -27,10 +27,10 @@ Salaheddine Merchich is a 5th-year software engineering student (EMSI Casablanca
 
 ## Resume
 
-Download CV PDF: https://my-portfolio-merchich.vercel.app/resume.pdf
+Download CV PDF: https://salaheddine-merchich.vercel.app/resume.pdf
 
 ## Related files
 
-- Machine-readable index: https://my-portfolio-merchich.vercel.app/llms.txt
-- Action manifest: https://my-portfolio-merchich.vercel.app/agents.json
-- Sitemap: https://my-portfolio-merchich.vercel.app/sitemap.xml
+- Machine-readable index: https://salaheddine-merchich.vercel.app/llms.txt
+- Action manifest: https://salaheddine-merchich.vercel.app/agents.json
+- Sitemap: https://salaheddine-merchich.vercel.app/sitemap.xml

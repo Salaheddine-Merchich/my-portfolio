@@ -4,10 +4,10 @@ Personal portfolio of Salaheddine Merchich, 5th-year software engineering studen
 
 ## Key pages
 
-- [Home](https://my-portfolio-merchich.vercel.app/)
-- [Resume PDF](https://my-portfolio-merchich.vercel.app/resume.pdf)
-- [Contact section](https://my-portfolio-merchich.vercel.app/#contact)
-- [Sitemap](https://my-portfolio-merchich.vercel.app/sitemap.xml)
+- [Home](https://salaheddine-merchich.vercel.app/)
+- [Resume PDF](https://salaheddine-merchich.vercel.app/resume.pdf)
+- [Contact section](https://salaheddine-merchich.vercel.app/#contact)
+- [Sitemap](https://salaheddine-merchich.vercel.app/sitemap.xml)
 
 ## Profiles
 
