@@ -56,7 +56,7 @@ export default function WorkExperience() {
                         alt={exp.company}
                         width="56"
                         height="56"
-                        className="w-full h-full object-contain p-2"
+                        className="w-full h-full object-contain p-1"
                       />
                     </div>
                   )}

@@ -147,7 +147,7 @@ const workExperiences = {
     {
       role: "Software Engineering Intern",
       company: "OCP Jorf Lasfar",
-      companylogo: require("./assets/images/skills_viz.svg"),
+      companylogo: "/logos/ocp.svg",
       date: "July – September 2026",
       desc: "Phosphoric Acid Production Directorate (EIA) — 4th-year internship in Jorf Lasfar, Morocco.",
       descBullets: [
@@ -161,7 +161,7 @@ const workExperiences = {
     {
       role: "IT Intern",
       company: "Cosumar (SUTA Group)",
-      companylogo: require("./assets/images/skills_viz.svg"),
+      companylogo: "/logos/cosumar.png",
       date: "July – August 2025",
       desc: "IT Department — 3rd-year internship in Casablanca, Morocco.",
       descBullets: [
