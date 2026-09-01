@@ -23,7 +23,7 @@ const greeting = {
   username: "Salaheddine Merchich",
   title: "Hi all, I'm Salaheddine",
   subTitle: emoji(
-    "A driven 4th-year Software Engineering student at EMSI Casablanca, specializing in building robust full-stack applications and backend systems. With a strong foundation in software testing (QA) and a passion for modern technologies like React, Spring Boot, and Supabase, I strive to deliver high-quality, scalable solutions. 🚀"
+    "A driven 5th-year Software Engineering student at EMSI Casablanca, with hands-on backend and full-stack experience from industrial internships. I designed and built EIA SmartFix, an industrial maintenance platform in Spring Boot/React with a RAG-based AI assistant, and Gestion-de-stock, a real-time inventory platform in React/TypeScript. Comfortable across the full stack — Java/Spring Boot, React, PostgreSQL — with a strong practice of testing and CI/CD. Open to a 6-month end-of-studies internship (PFE) in software development in Europe from November 2026. 🚀"
   ),
   resumeLink: "view", // Points to src/containers/greeting/resume.pdf via Greeting.js logic
   displayGreeting: true // Set false to hide this section, defaults to true
@@ -48,19 +48,22 @@ const socialMediaLinks = {
 
 const skillsSection = {
   title: "What I do",
-  subTitle: "FULL STACK SOFTWARE ENGINEER SPECIALIZING IN BACKEND & TESTING",
+  subTitle: "SOFTWARE ENGINEER | JAVA, SPRING BOOT, REACT & RAG",
   skills: [
     emoji(
-      "⚡ Develop robust backend services using Java, Spring Boot, and PostgreSQL"
+      "⚡ Develop robust backend services with Java, Spring Boot, hexagonal architecture, REST APIs, and PostgreSQL/pgvector"
     ),
     emoji(
       "⚡ Build modern, responsive front-end applications with React and TypeScript"
     ),
     emoji(
-      "⚡ Implement comprehensive software testing strategies (Unit, Integration, E2E) to ensure high-quality delivery"
+      "⚡ Build RAG systems with hybrid search, vector embeddings, and on-premise LLM inference via Ollama"
     ),
     emoji(
-      "⚡ Manage data persistence and optimization using SQL Server, MySQL, and Supabase"
+      "⚡ Implement comprehensive testing (JUnit, Mockito, Selenium E2E) and CI/CD pipelines with GitHub Actions and Docker"
+    ),
+    emoji(
+      "🌐 Languages: Arabic (native), French (fluent), English (B2 — professional)"
     )
   ],
 
@@ -95,6 +98,10 @@ https://fontawesome.com/icons?d=gallery */
     {
       skillName: "React",
       fontAwesomeClassname: "fab fa-react"
+    },
+    {
+      skillName: "Angular",
+      fontAwesomeClassname: "fab fa-angular"
     },
     {
       skillName: "React Native",
@@ -132,12 +139,12 @@ const educationInfo = {
     {
       schoolName: "EMSI Casablanca",
       logo: require("./assets/images/skill.svg"),
-      subHeader: "Ingénierie Informatique",
+      subHeader: "Digital Development & Information Systems Engineering",
       duration: "2022 - 2027",
-      desc: "4th-year Software Engineering student focused on building modern software solutions.",
+      desc: "5th-year Software Engineering student with industrial backend and full-stack experience.",
       descBullets: [
         "Specializing in Backend Development and Software Testing (QA)",
-        "Focusing on Java/Spring Boot and React ecosystems"
+        "Focused on Java/Spring Boot and React ecosystems"
       ]
     },
     {
@@ -158,14 +165,18 @@ const techStack = {
   experience: [
     {
       Stack: "Backend Development",
-      progressPercentage: "85%"
+      progressPercentage: "90%"
     },
     {
       Stack: "Full Stack Development",
-      progressPercentage: "80%"
+      progressPercentage: "85%"
     },
     {
       Stack: "Software Testing & QA",
+      progressPercentage: "80%"
+    },
+    {
+      Stack: "AI / RAG Systems",
       progressPercentage: "75%"
     }
   ],
@@ -178,16 +189,29 @@ const workExperiences = {
   display: true, //Set it to true to show workExperiences Section
   experience: [
     {
-      role: "IT Department Intern",
-      company: "COSUMAR - SUTA",
+      role: "Software Engineering Intern",
+      company: "OCP Jorf Lasfar",
+      companylogo: require("./assets/images/skill.svg"),
+      date: "July – September 2026",
+      desc: "Phosphoric Acid Production Directorate (EIA) — 4th-year internship in Jorf Lasfar, Morocco.",
+      descBullets: [
+        "Designed and developed EIA SmartFix, an industrial maintenance web platform with a RAG-based AI diagnostic assistant",
+        "Built the backend in Spring Boot with hexagonal architecture (ports & adapters) for the RAG module; developed the frontend in React",
+        "Implemented hybrid search (dense + lexical) with Reciprocal Rank Fusion (RRF) on PostgreSQL/pgvector (768D embeddings, HNSW indexing) and on-premise LLM inference via Ollama",
+        "Knowledge base of 118 validated intervention sheets, 21 technical schemas, and 19 manufacturer manuals across 5 equipment families",
+        "Added AI confidence scoring for generated responses and orchestrated services via Docker Compose"
+      ]
+    },
+    {
+      role: "IT Intern",
+      company: "Cosumar (SUTA Group)",
       companylogo: require("./assets/images/skill.svg"),
       date: "July – August 2025",
-      desc: "Gained hands-on experience in a large-scale industrial IT environment.",
+      desc: "IT Department — 3rd-year internship in Casablanca, Morocco.",
       descBullets: [
-        "Observation and participation in stock management processes",
-        "Monitoring payment systems (Orange, Maroc Telecom, Inwi)",
-        "Using the SAP system for billing",
-        "Technical support for multiple internal users in an industrial environment"
+        "Designed and developed Gestion-de-stock, a real-time IT inventory platform (React, TypeScript, Supabase) with a RAG assistant (Ollama), replacing manual paper/Excel tracking",
+        "Managed IT hardware inventory (printers, toners, PC components) and organized server room cabling",
+        "Configured and monitored the security camera system; tracked billing and payments via SAP, gaining exposure to ERP workflows in an industrial context"
       ]
     }
   ]
@@ -208,10 +232,22 @@ const bigProjects = {
   subtitle: "INNOVATIVE SOLUTIONS BUILT WITH MODERN TECHNOLOGIES",
   projects: [
     {
+      image: require("./assets/images/testing.svg"),
+      projectName: "Leave-Management-System",
+      projectDesc:
+        "A leave management platform in a monorepo architecture (Spring Boot API / Angular frontend) with a comprehensive test suite (unit, integration, E2E) and an automated CI/CD pipeline on GitHub Actions. Built with Java 17, Spring Boot 3, JUnit 5, Mockito, and Selenium.",
+      footerLink: [
+        {
+          name: "GitHub",
+          url: "https://github.com/Salaheddine-Merchich/Leave-Management-System"
+        }
+      ]
+    },
+    {
       image: require("./assets/images/stock.svg"),
       projectName: "Gestion de Stock",
       projectDesc:
-        "A web application for inventory tracking (products, entries, exits) developed with React, TypeScript, and Supabase. Implements secure CRUD operations and user authentication with a responsive interface.",
+        "A real-time IT inventory management platform (React, TypeScript, Supabase) with a RAG-based AI assistant (Ollama), replacing manual paper/Excel tracking. Implements secure CRUD operations, user authentication, and a responsive interface.",
       footerLink: [
         {
           name: "GitHub",
@@ -247,7 +283,7 @@ const bigProjects = {
       image: require("./assets/images/quiz.svg"),
       projectName: "Football Arena Quiz",
       projectDesc:
-        "An interactive Android application for football trivia, built with Java and Gradle. Focused on mobile UI/UX and complex trivia logic, featuring detailed technical documentation and robust asset management.",
+        "A personal Android quiz application about football, built with Kotlin/Java and Gradle to explore native mobile development beyond web and backend. Focused on mobile UI/UX and trivia logic.",
       footerLink: [
         {
           name: "GitHub",
@@ -259,7 +295,7 @@ const bigProjects = {
       image: require("./assets/images/travel.svg"),
       projectName: "Voyage-Zenith",
       projectDesc:
-        "A travel management platform built with React, TypeScript, and Supabase. Leverages serverless BaaS for scalable authentication and database services, providing a responsive interface for complex travel planning.",
+        "A web platform for booking and organizing trips, with authentication and database services via Supabase. Built with React, TypeScript, and Vite.",
       footerLink: [
         {
           name: "GitHub",
@@ -334,7 +370,7 @@ const resumeSection = {
 const contactInfo = {
   title: emoji("Contact Me ☎️"),
   subtitle:
-    "Discuss a project or just want to say hi? My Inbox is open for all.",
+    "Discuss a project or just want to say hi? My inbox is open for all. Open to a 6-month end-of-studies internship (PFE) in software development in Europe from November 2026.",
   number: "+212 676-906661",
   email_address: "merchichsalaheddine@gmail.com"
 };
