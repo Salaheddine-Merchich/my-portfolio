@@ -83,7 +83,7 @@ export default function Footer() {
 
         <p
           className={`text-sm tracking-wide ${
-            isDark ? "text-gray-300" : "text-gray-500"
+            isDark ? "text-gray-300" : "text-gray-600"
           }`}
         >
           Built with <span className="text-primary font-bold">React</span> +{" "}
@@ -92,7 +92,7 @@ export default function Footer() {
 
         <div className="pt-4">
           <p
-            className={`text-xs ${isDark ? "text-gray-300" : "text-gray-500"}`}
+            className={`text-xs ${isDark ? "text-gray-300" : "text-gray-600"}`}
           >
             &copy; {new Date().getFullYear()} All Rights Reserved.
           </p>

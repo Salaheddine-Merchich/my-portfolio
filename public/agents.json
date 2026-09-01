@@ -1,18 +1,22 @@
 {
-  "schema_version": "1.0",
-  "name": "Salaheddine Merchich Portfolio",
-  "url": "https://my-portfolio-merchich.vercel.app/",
-  "description": "Portfolio and contact actions for Salaheddine Merchich, software engineering student.",
+  "$schema": "https://agents-txt.com/schema/agents-json/v1.0.json",
+  "version": "1.0",
+  "site": {
+    "name": "Salaheddine Merchich Portfolio",
+    "url": "https://my-portfolio-merchich.vercel.app/"
+  },
   "actions": [
     {
-      "name": "contact",
-      "description": "Send an email to the portfolio owner",
-      "url": "https://my-portfolio-merchich.vercel.app/#contact"
+      "id": "contact",
+      "description": "Navigate to the contact section",
+      "url": "https://my-portfolio-merchich.vercel.app/#contact",
+      "parameters": []
     },
     {
-      "name": "download_resume",
-      "description": "Download CV PDF",
-      "url": "https://my-portfolio-merchich.vercel.app/resume.pdf"
+      "id": "download_resume",
+      "description": "Download the CV PDF",
+      "url": "https://my-portfolio-merchich.vercel.app/resume.pdf",
+      "parameters": []
     }
   ]
 }

@@ -30,7 +30,7 @@ export default function Contact() {
         </h2>
         <p
           className={`text-lg max-w-2xl mx-auto ${
-            isDark ? "text-gray-400" : "text-gray-600"
+            isDark ? "text-gray-300" : "text-gray-600"
           }`}
         >
           {contactInfo.subtitle}

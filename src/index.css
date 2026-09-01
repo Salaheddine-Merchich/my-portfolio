@@ -66,13 +66,19 @@
   font-weight: normal;
   src: local("Agustina Regular"),
     url("./assets/fonts/Agustina.woff") format("woff");
-  font-display: swap;
+  font-display: optional;
 }
 @font-face {
   font-family: "Montserrat";
   src: local("Montserrat"),
     url("./assets/fonts/Montserrat-Regular.ttf") format("woff");
   font-display: swap;
+}
+
+.dark-mode .subTitle,
+.dark .subTitle,
+.dark-mode .blog-subtitle {
+  color: #d1d5db;
 }
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
