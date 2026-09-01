@@ -1,5 +1,5 @@
 import React, {useContext} from "react";
-import {motion} from "framer-motion";
+import FadeInView from "../../components/fadeIn/FadeInView";
 import {achievementSection} from "../../portfolio";
 import StyleContext from "../../contexts/StyleContext";
 import {Award, ExternalLink} from "lucide-react";
@@ -10,15 +10,14 @@ export default function Achievement() {
     return null;
   }
   return (
-    <div className="py-20 px-6 max-w-7xl mx-auto" id="achievements">
-      <motion.div
-        initial={{opacity: 0, y: 20}}
-        whileInView={{opacity: 1, y: 0}}
-        viewport={{once: true}}
-        transition={{duration: 0.6}}
-        className="text-center mb-16"
-      >
+    <section
+      className="py-20 px-6 max-w-7xl mx-auto"
+      id="achievements"
+      aria-labelledby="achievements-heading"
+    >
+      <FadeInView className="text-center mb-16">
         <h2
+          id="achievements-heading"
           className={`text-4xl lg:text-5xl font-bold mb-4 ${
             isDark ? "text-white" : "text-gray-900"
           }`}
@@ -32,18 +31,14 @@ export default function Achievement() {
         >
           {achievementSection.subtitle}
         </p>
-      </motion.div>
+      </FadeInView>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {achievementSection.achievementsCards.map((card, i) => (
-          <motion.div
+          <FadeInView
             key={i}
-            initial={{opacity: 0, scale: 0.9}}
-            whileInView={{opacity: 1, scale: 1}}
-            viewport={{once: true}}
-            transition={{duration: 0.5, delay: i * 0.1}}
-            whileHover={{y: -5}}
-            className={`p-6 rounded-2xl shadow-lg transition-all duration-300 ${
+            delay={i * 0.1}
+            className={`p-6 rounded-2xl shadow-lg transition-all duration-300 hover:-translate-y-1 ${
               isDark
                 ? "bg-gray-800/50 border border-gray-700 hover:border-primary/50"
                 : "bg-white border border-gray-100 hover:border-primary/30"
@@ -54,6 +49,8 @@ export default function Achievement() {
                 <img
                   src={card.image?.default || card.image}
                   alt={card.title}
+                  width="64"
+                  height="64"
                   className="w-full h-full object-contain p-2"
                 />
               ) : (
@@ -92,9 +89,9 @@ export default function Achievement() {
                 ))}
               </div>
             )}
-          </motion.div>
+          </FadeInView>
         ))}
       </div>
-    </div>
+    </section>
   );
 }

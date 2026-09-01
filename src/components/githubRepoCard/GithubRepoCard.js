@@ -1,5 +1,5 @@
 import React from "react";
-import {motion} from "framer-motion";
+import FadeInView from "../fadeIn/FadeInView";
 import {Star, GitFork, Book} from "lucide-react";
 
 export default function GithubRepoCard({repo, isDark}) {
@@ -11,14 +11,9 @@ export default function GithubRepoCard({repo, isDark}) {
   }
 
   return (
-    <motion.div
-      initial={{opacity: 0, y: 20}}
-      whileInView={{opacity: 1, y: 0}}
-      viewport={{once: true}}
-      transition={{duration: 0.5}}
-      whileHover={{y: -5}}
+    <FadeInView
       onClick={() => openUrlInNewTab(repo.node.url)}
-      className={`p-6 rounded-2xl shadow-lg transition-all duration-300 cursor-pointer h-full flex flex-col ${
+      className={`p-6 rounded-2xl shadow-lg transition-all duration-300 cursor-pointer h-full flex flex-col hover:-translate-y-1 ${
         isDark
           ? "bg-gray-800/50 border border-gray-700 hover:border-primary/50"
           : "bg-white border border-gray-100 hover:border-primary/30"
@@ -72,6 +67,6 @@ export default function GithubRepoCard({repo, isDark}) {
           </div>
         </div>
       </div>
-    </motion.div>
+    </FadeInView>
   );
 }

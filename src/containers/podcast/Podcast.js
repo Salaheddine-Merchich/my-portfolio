@@ -1,7 +1,7 @@
 import React, {useContext} from "react";
 import "./Podcast.scss";
 import {podcastSection} from "../../portfolio";
-import {motion} from "framer-motion";
+import FadeInView from "../../components/fadeIn/FadeInView";
 import StyleContext from "../../contexts/StyleContext";
 
 export default function Podcast() {
@@ -14,12 +14,7 @@ export default function Podcast() {
     return null;
   }
   return (
-    <motion.div
-      initial={{opacity: 0, y: 20}}
-      whileInView={{opacity: 1, y: 0}}
-      viewport={{once: true}}
-      transition={{duration: 0.6}}
-    >
+    <FadeInView>
       <div
         className={`${
           isDark ? "bg-gray-900 text-white" : "bg-white text-gray-800"
@@ -58,6 +53,6 @@ export default function Podcast() {
           })}
         </div>
       </div>
-    </motion.div>
+    </FadeInView>
   );
 }

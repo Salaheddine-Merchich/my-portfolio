@@ -1,6 +1,6 @@
 import React, {useContext} from "react";
-import {motion} from "framer-motion";
 import SoftwareSkill from "../../components/softwareSkills/SoftwareSkill";
+import FadeInView from "../../components/fadeIn/FadeInView";
 import {skillsSection} from "../../portfolio";
 import StyleContext from "../../contexts/StyleContext";
 import {CircleCheck} from "lucide-react";
@@ -11,38 +11,30 @@ export default function Skills() {
     return null;
   }
   return (
-    <div className="py-20 px-6 max-w-7xl mx-auto" id="skills">
+    <section
+      className="py-20 px-6 max-w-7xl mx-auto"
+      id="skills"
+      aria-labelledby="skills-heading"
+    >
       <div className="flex flex-col lg:flex-row items-center gap-16">
-        <motion.div
-          initial={{opacity: 0, x: -50}}
-          whileInView={{opacity: 1, x: 0}}
-          viewport={{once: true}}
-          transition={{duration: 0.8}}
-          className="flex-1 w-full"
-        >
+        <FadeInView variant="left" className="flex-1 w-full">
           <div className="relative group">
             <div className="absolute inset-0 bg-secondary/20 blur-3xl rounded-full -z-10 animate-pulse"></div>
             <img
               alt="Developer working on code"
-              src={
-                require("../../assets/images/skills_viz.svg").default ||
-                require("../../assets/images/skills_viz.svg")
-              }
+              src="/hero-illustration.svg"
+              width="400"
+              height="320"
               className="w-full max-w-md mx-auto drop-shadow-2xl"
               loading="lazy"
               decoding="async"
             />
           </div>
-        </motion.div>
+        </FadeInView>
 
-        <motion.div
-          initial={{opacity: 0, x: 50}}
-          whileInView={{opacity: 1, x: 0}}
-          viewport={{once: true}}
-          transition={{duration: 0.8}}
-          className="flex-1"
-        >
+        <FadeInView variant="right" className="flex-1">
           <h2
+            id="skills-heading"
             className={`text-4xl lg:text-5xl font-bold mb-6 ${
               isDark ? "text-white" : "text-gray-900"
             }`}
@@ -71,8 +63,8 @@ export default function Skills() {
           </div>
 
           <SoftwareSkill />
-        </motion.div>
+        </FadeInView>
       </div>
-    </div>
+    </section>
   );
 }

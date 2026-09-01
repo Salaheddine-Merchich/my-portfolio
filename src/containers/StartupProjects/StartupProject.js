@@ -1,5 +1,5 @@
 import React, {useContext} from "react";
-import {motion} from "framer-motion";
+import FadeInView from "../../components/fadeIn/FadeInView";
 import {bigProjects} from "../../portfolio";
 import StyleContext from "../../contexts/StyleContext";
 import {ExternalLink, GitFork} from "lucide-react";
@@ -11,15 +11,14 @@ export default function StartupProject() {
   }
 
   return (
-    <div className="py-20 px-6 max-w-7xl mx-auto" id="projects">
-      <motion.div
-        initial={{opacity: 0, y: 20}}
-        whileInView={{opacity: 1, y: 0}}
-        viewport={{once: true}}
-        transition={{duration: 0.6}}
-        className="text-center mb-16"
-      >
+    <section
+      className="py-20 px-6 max-w-7xl mx-auto"
+      id="projects"
+      aria-labelledby="projects-heading"
+    >
+      <FadeInView className="text-center mb-16">
         <h2
+          id="projects-heading"
           className={`text-4xl lg:text-5xl font-bold mb-4 ${
             isDark ? "text-white" : "text-gray-900"
           }`}
@@ -33,18 +32,14 @@ export default function StartupProject() {
         >
           {bigProjects.subtitle}
         </p>
-      </motion.div>
+      </FadeInView>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {bigProjects.projects.map((project, i) => (
-          <motion.div
+          <FadeInView
             key={i}
-            initial={{opacity: 0, y: 30}}
-            whileInView={{opacity: 1, y: 0}}
-            viewport={{once: true}}
-            transition={{duration: 0.5, delay: i * 0.1}}
-            whileHover={{y: -10}}
-            className={`flex flex-col rounded-2xl overflow-hidden shadow-xl transition-all duration-300 ${
+            delay={i * 0.1}
+            className={`flex flex-col rounded-2xl overflow-hidden shadow-xl transition-all duration-300 hover:-translate-y-2 ${
               isDark
                 ? "bg-gray-800/50 border border-gray-700 hover:border-primary/50"
                 : "bg-white border border-gray-100 hover:border-primary/30"
@@ -59,6 +54,8 @@ export default function StartupProject() {
                 <img
                   src={project.image?.default || project.image}
                   alt={project.projectName}
+                  width="160"
+                  height="128"
                   loading="lazy"
                   decoding="async"
                   className="max-h-full max-w-full object-contain transition-transform duration-500 group-hover:scale-110"
@@ -110,9 +107,9 @@ export default function StartupProject() {
                 </div>
               )}
             </div>
-          </motion.div>
+          </FadeInView>
         ))}
       </div>
-    </div>
+    </section>
   );
 }

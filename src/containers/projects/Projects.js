@@ -1,6 +1,6 @@
 import React, {useState, useEffect, useContext, Suspense, lazy} from "react";
-import {motion} from "framer-motion";
 import Button from "../../components/button/Button";
+import FadeInView from "../../components/fadeIn/FadeInView";
 import {openSource, socialMediaLinks} from "../../portfolio";
 import StyleContext from "../../contexts/StyleContext";
 import Loading from "../../containers/loading/Loading";
@@ -37,16 +37,15 @@ export default function Projects() {
   }
 
   return (
-    <div className="py-20 px-6 max-w-7xl mx-auto" id="opensource">
+    <section
+      className="py-20 px-6 max-w-7xl mx-auto"
+      id="opensource"
+      aria-labelledby="opensource-heading"
+    >
       <Suspense fallback={<Loading />}>
-        <motion.div
-          initial={{opacity: 0, y: 20}}
-          whileInView={{opacity: 1, y: 0}}
-          viewport={{once: true}}
-          transition={{duration: 0.6}}
-          className="text-center mb-16"
-        >
+        <FadeInView className="text-center mb-16">
           <h2
+            id="opensource-heading"
             className={`text-4xl lg:text-5xl font-bold mb-4 ${
               isDark ? "text-white" : "text-gray-900"
             }`}
@@ -60,7 +59,7 @@ export default function Projects() {
           >
             A selection of my pinned repositories on GitHub.
           </p>
-        </motion.div>
+        </FadeInView>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
           {repo.map((v, i) => (
@@ -77,6 +76,6 @@ export default function Projects() {
           />
         </div>
       </Suspense>
-    </div>
+    </section>
   );
 }

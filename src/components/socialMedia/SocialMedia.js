@@ -1,11 +1,8 @@
 import React from "react";
 import "./SocialMedia.scss";
 import {Mail, Phone} from "lucide-react";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faGithub, faLinkedinIn} from "@fortawesome/free-brands-svg-icons";
+import {GithubIcon, LinkedinIcon} from "../icons/BrandIcons";
 import {socialMediaLinks} from "../../portfolio";
-
-const iconClass = "w-5 h-5";
 
 export default function socialMedia() {
   if (!socialMediaLinks.display) {
@@ -21,7 +18,7 @@ export default function socialMedia() {
           rel="noopener noreferrer"
           aria-label="GitHub profile"
         >
-          <FontAwesomeIcon icon={faGithub} className={iconClass} aria-hidden="true" />
+          <GithubIcon />
         </a>
       ) : null}
 
@@ -33,7 +30,7 @@ export default function socialMedia() {
           rel="noopener noreferrer"
           aria-label="LinkedIn profile"
         >
-          <FontAwesomeIcon icon={faLinkedinIn} className={iconClass} aria-hidden="true" />
+          <LinkedinIcon />
         </a>
       ) : null}
 
@@ -43,7 +40,7 @@ export default function socialMedia() {
           className="icon-button google"
           aria-label="Send email"
         >
-          <Mail className={iconClass} aria-hidden="true" />
+          <Mail className="w-5 h-5" aria-hidden="true" />
         </a>
       ) : null}
 
@@ -53,7 +50,7 @@ export default function socialMedia() {
           className="icon-button phone"
           aria-label="Call phone number"
         >
-          <Phone className={iconClass} aria-hidden="true" />
+          <Phone className="w-5 h-5" aria-hidden="true" />
         </a>
       ) : null}
     </div>

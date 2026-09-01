@@ -1,11 +1,25 @@
 @import "../../_globalColor";
 
 .social-media-div {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
   font-size: 2em;
 }
 
 .icon-button {
-  margin-bottom: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 48px;
+  min-height: 48px;
+  margin: 0;
+  border-radius: 2.6rem;
+  cursor: pointer;
+  text-decoration: none;
+  transition: 0.2s ease-in;
+  box-sizing: border-box;
 }
 
 .icon-button i {
@@ -90,6 +104,6 @@
 /* Media Query */
 @media (max-width: 768px) {
   .social-media-div {
-    text-align: center;
+    justify-content: center;
   }
 }

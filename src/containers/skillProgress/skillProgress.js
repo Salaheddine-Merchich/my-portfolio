@@ -1,7 +1,29 @@
 import React, {useContext} from "react";
-import {motion} from "framer-motion";
+import FadeInView from "../../components/fadeIn/FadeInView";
+import {useInView} from "../../hooks/useInView";
 import {techStack} from "../../portfolio";
 import StyleContext from "../../contexts/StyleContext";
+
+function SkillProgressBar({percentage, delay, isDark}) {
+  const [ref, isInView] = useInView();
+
+  return (
+    <div
+      ref={ref}
+      className={`h-3 w-full rounded-full overflow-hidden ${
+        isDark ? "bg-gray-700" : "bg-gray-100"
+      }`}
+    >
+      <div
+        className="h-full bg-gradient-to-r from-primary to-secondary transition-all duration-[1500ms] ease-out"
+        style={{
+          width: isInView ? percentage : "0%",
+          transitionDelay: `${delay * 0.1}s`
+        }}
+      />
+    </div>
+  );
+}
 
 export default function StackProgress() {
   const {isDark} = useContext(StyleContext);
@@ -12,13 +34,7 @@ export default function StackProgress() {
   return (
     <div className="py-20 px-6 max-w-7xl mx-auto">
       <div className="flex flex-col lg:flex-row items-center gap-16">
-        <motion.div
-          initial={{opacity: 0, x: -50}}
-          whileInView={{opacity: 1, x: 0}}
-          viewport={{once: true}}
-          transition={{duration: 0.8}}
-          className="flex-1 w-full"
-        >
+        <FadeInView variant="left" className="flex-1 w-full">
           <h2
             className={`text-3xl lg:text-4xl font-bold mb-10 ${
               isDark ? "text-white" : "text-gray-900"
@@ -41,47 +57,30 @@ export default function StackProgress() {
                     {exp.progressPercentage}
                   </span>
                 </div>
-                <div
-                  className={`h-3 w-full rounded-full overflow-hidden ${
-                    isDark ? "bg-gray-700" : "bg-gray-100"
-                  }`}
-                >
-                  <motion.div
-                    initial={{width: 0}}
-                    whileInView={{width: exp.progressPercentage}}
-                    viewport={{once: true}}
-                    transition={{
-                      duration: 1.5,
-                      delay: i * 0.1,
-                      ease: "easeOut"
-                    }}
-                    className="h-full bg-gradient-to-r from-primary to-secondary"
-                  />
-                </div>
+                <SkillProgressBar
+                  percentage={exp.progressPercentage}
+                  delay={i}
+                  isDark={isDark}
+                />
               </div>
             ))}
           </div>
-        </motion.div>
+        </FadeInView>
 
-        <motion.div
-          initial={{opacity: 0, scale: 0.8}}
-          whileInView={{opacity: 1, scale: 1}}
-          viewport={{once: true}}
-          transition={{duration: 0.8}}
-          className="flex-1 hidden lg:block"
-        >
+        <FadeInView variant="none" className="flex-1 hidden lg:block">
           <div className="relative group">
             <div className="absolute inset-0 bg-primary/20 blur-3xl rounded-full -z-10 group-hover:bg-primary/30 transition-all duration-500"></div>
             <img
               alt="Skills Visualization"
-              src={
-                require("../../assets/images/skills_viz.svg").default ||
-                require("../../assets/images/skills_viz.svg")
-              }
+              src="/hero-illustration.svg"
+              width="400"
+              height="320"
               className="w-full max-w-md mx-auto drop-shadow-2xl"
+              loading="lazy"
+              decoding="async"
             />
           </div>
-        </motion.div>
+        </FadeInView>
       </div>
     </div>
   );

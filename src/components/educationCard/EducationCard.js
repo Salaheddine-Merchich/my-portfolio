@@ -1,5 +1,5 @@
 import React, {createRef, useContext} from "react";
-import {motion} from "framer-motion";
+import FadeInView from "../fadeIn/FadeInView";
 import "./EducationCard.scss";
 import StyleContext from "../../contexts/StyleContext";
 
@@ -21,12 +21,7 @@ export default function EducationCard({school}) {
     console.error(`Image of ${school.name} is missing in education section`);
   return (
     <div>
-      <motion.div
-        initial={{opacity: 0, y: 20}}
-        whileInView={{opacity: 1, y: 0}}
-        viewport={{once: true}}
-        transition={{duration: 0.6}}
-      >
+      <FadeInView>
         <div
           className={`${
             isDark ? "bg-gray-900 text-white" : "bg-white text-gray-800"
@@ -40,6 +35,8 @@ export default function EducationCard({school}) {
                 className="education-roundedimg"
                 src={school.logo}
                 alt={school.schoolName}
+                width="120"
+                height="120"
               />
             </div>
           )}
@@ -72,15 +69,10 @@ export default function EducationCard({school}) {
             </div>
           </div>
         </div>
-      </motion.div>
-      <motion.div
-        initial={{opacity: 0, x: -20}}
-        whileInView={{opacity: 1, x: 0}}
-        viewport={{once: true}}
-        transition={{duration: 0.8}}
-      >
+      </FadeInView>
+      <FadeInView variant="left">
         <div className="education-card-border"></div>
-      </motion.div>
+      </FadeInView>
     </div>
   );
 }

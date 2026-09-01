@@ -2,7 +2,7 @@ import React, {useState, useEffect, useContext} from "react";
 import "./Blog.scss";
 import BlogCard from "../../components/blogCard/BlogCard";
 import {blogSection} from "../../portfolio";
-import {motion} from "framer-motion";
+import FadeInView from "../../components/fadeIn/FadeInView";
 import StyleContext from "../../contexts/StyleContext";
 export default function Blogs() {
   const {isDark} = useContext(StyleContext);
@@ -48,12 +48,7 @@ export default function Blogs() {
     return null;
   }
   return (
-    <motion.div
-      initial={{opacity: 0, y: 20}}
-      whileInView={{opacity: 1, y: 0}}
-      viewport={{once: true}}
-      transition={{duration: 0.6}}
-    >
+    <FadeInView>
       <div
         className={`${
           isDark ? "bg-gray-900 text-white" : "bg-white text-gray-800"
@@ -104,6 +99,6 @@ export default function Blogs() {
           </div>
         </div>
       </div>
-    </motion.div>
+    </FadeInView>
   );
 }

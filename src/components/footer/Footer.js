@@ -1,10 +1,16 @@
 import React, {useContext} from "react";
-import {motion} from "framer-motion";
 import StyleContext from "../../contexts/StyleContext";
 import {Heart, Mail, Phone} from "lucide-react";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faGithub, faLinkedinIn} from "@fortawesome/free-brands-svg-icons";
+import {GithubIcon, LinkedinIcon} from "../icons/BrandIcons";
 import {socialMediaLinks} from "../../portfolio";
+import FadeInView from "../fadeIn/FadeInView";
+
+const socialLinkClass = isDark =>
+  `inline-flex items-center justify-center min-w-[48px] min-h-[48px] transition-colors ${
+    isDark
+      ? "text-gray-300 hover:text-white"
+      : "text-gray-600 hover:text-gray-900"
+  }`;
 
 export default function Footer() {
   const {isDark} = useContext(StyleContext);
@@ -14,26 +20,20 @@ export default function Footer() {
         isDark ? "bg-gray-900 border-gray-800" : "bg-gray-50 border-gray-100"
       }`}
     >
-      <motion.div
-        initial={{opacity: 0}}
-        whileInView={{opacity: 1}}
-        transition={{duration: 0.8}}
+      <FadeInView
+        variant="none"
         className="max-w-7xl mx-auto px-6 flex flex-col items-center text-center space-y-6"
       >
-        <div className="flex items-center gap-6">
+        <div className="flex items-center gap-3">
           {socialMediaLinks.github && (
             <a
               href={socialMediaLinks.github}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="GitHub profile"
-              className={`transition-colors ${
-                isDark
-                  ? "text-gray-400 hover:text-white"
-                  : "text-gray-500 hover:text-gray-900"
-              }`}
+              className={socialLinkClass(isDark)}
             >
-              <FontAwesomeIcon icon={faGithub} size="lg" aria-hidden="true" />
+              <GithubIcon size={24} />
             </a>
           )}
           {socialMediaLinks.linkedin && (
@@ -42,24 +42,16 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn profile"
-              className={`transition-colors ${
-                isDark
-                  ? "text-gray-400 hover:text-white"
-                  : "text-gray-500 hover:text-gray-900"
-              }`}
+              className={socialLinkClass(isDark)}
             >
-              <FontAwesomeIcon icon={faLinkedinIn} size="lg" aria-hidden="true" />
+              <LinkedinIcon size={24} />
             </a>
           )}
           {socialMediaLinks.gmail && (
             <a
               href={`mailto:${socialMediaLinks.gmail}`}
               aria-label="Send email"
-              className={`transition-colors ${
-                isDark
-                  ? "text-gray-400 hover:text-white"
-                  : "text-gray-500 hover:text-gray-900"
-              }`}
+              className={socialLinkClass(isDark)}
             >
               <Mail size={24} aria-hidden="true" />
             </a>
@@ -68,11 +60,7 @@ export default function Footer() {
             <a
               href={`tel:${socialMediaLinks.phone}`}
               aria-label="Call phone number"
-              className={`transition-colors ${
-                isDark
-                  ? "text-gray-400 hover:text-white"
-                  : "text-gray-500 hover:text-gray-900"
-              }`}
+              className={socialLinkClass(isDark)}
             >
               <Phone size={24} aria-hidden="true" />
             </a>
@@ -95,22 +83,21 @@ export default function Footer() {
 
         <p
           className={`text-sm tracking-wide ${
-            isDark ? "text-gray-400" : "text-gray-500"
+            isDark ? "text-gray-300" : "text-gray-500"
           }`}
         >
           Built with <span className="text-primary font-bold">React</span> +{" "}
-          <span className="text-primary font-bold">Tailwind CSS</span> +{" "}
-          <span className="text-primary font-bold">Framer Motion</span>
+          <span className="text-primary font-bold">Tailwind CSS</span>
         </p>
 
         <div className="pt-4">
           <p
-            className={`text-xs ${isDark ? "text-gray-400" : "text-gray-500"}`}
+            className={`text-xs ${isDark ? "text-gray-300" : "text-gray-500"}`}
           >
             &copy; {new Date().getFullYear()} All Rights Reserved.
           </p>
         </div>
-      </motion.div>
+      </FadeInView>
     </footer>
   );
 }

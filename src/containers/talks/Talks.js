@@ -2,7 +2,7 @@ import React, {useContext} from "react";
 import "./Talks.scss";
 import TalkCard from "../../components/talkCard/TalkCard";
 import {talkSection} from "../../portfolio";
-import {motion} from "framer-motion";
+import FadeInView from "../../components/fadeIn/FadeInView";
 import StyleContext from "../../contexts/StyleContext";
 
 export default function Talks() {
@@ -11,12 +11,7 @@ export default function Talks() {
     return null;
   }
   return (
-    <motion.div
-      initial={{opacity: 0, y: 20}}
-      whileInView={{opacity: 1, y: 0}}
-      viewport={{once: true}}
-      transition={{duration: 0.6}}
-    >
+    <FadeInView>
       <div
         className={`${
           isDark ? "bg-gray-900 text-white" : "bg-white text-gray-800"
@@ -51,6 +46,6 @@ export default function Talks() {
           })}
         </div>
       </div>
-    </motion.div>
+    </FadeInView>
   );
 }

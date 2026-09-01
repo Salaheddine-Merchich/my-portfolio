@@ -1,5 +1,5 @@
 import React, {useContext} from "react";
-import {motion} from "framer-motion";
+import FadeInView from "../../components/fadeIn/FadeInView";
 import {workExperiences} from "../../portfolio";
 import StyleContext from "../../contexts/StyleContext";
 import {Calendar, CircleCheck} from "lucide-react";
@@ -11,15 +11,14 @@ export default function WorkExperience() {
   }
 
   return (
-    <div className="py-20 px-6 max-w-5xl mx-auto" id="experience">
-      <motion.div
-        initial={{opacity: 0, y: 20}}
-        whileInView={{opacity: 1, y: 0}}
-        viewport={{once: true}}
-        transition={{duration: 0.6}}
-        className="text-center mb-16"
-      >
+    <section
+      className="py-20 px-6 max-w-5xl mx-auto"
+      id="experience"
+      aria-labelledby="experience-heading"
+    >
+      <FadeInView className="text-center mb-16">
         <h2
+          id="experience-heading"
           className={`text-4xl lg:text-5xl font-bold mb-4 ${
             isDark ? "text-white" : "text-gray-900"
           }`}
@@ -29,19 +28,16 @@ export default function WorkExperience() {
         <p className={`text-lg ${isDark ? "text-gray-400" : "text-gray-600"}`}>
           My journey in the software engineering world.
         </p>
-      </motion.div>
+      </FadeInView>
 
       <div className="relative border-l-2 border-primary/30 ml-4 md:ml-12 space-y-12">
         {workExperiences.experience.map((exp, i) => (
-          <motion.div
+          <FadeInView
             key={i}
-            initial={{opacity: 0, x: -30}}
-            whileInView={{opacity: 1, x: 0}}
-            viewport={{once: true}}
-            transition={{duration: 0.5, delay: i * 0.2}}
+            variant="left"
+            delay={i * 0.2}
             className="relative pl-8 md:pl-12"
           >
-            {/* Timeline dot */}
             <div className="absolute -left-[11px] top-0 w-5 h-5 bg-primary rounded-full border-4 border-white dark:border-gray-900 shadow-sm" />
 
             <div
@@ -58,6 +54,8 @@ export default function WorkExperience() {
                       <img
                         src={exp.companylogo?.default || exp.companylogo}
                         alt={exp.company}
+                        width="56"
+                        height="56"
                         className="w-full h-full object-contain p-2"
                       />
                     </div>
@@ -113,9 +111,9 @@ export default function WorkExperience() {
                 </ul>
               )}
             </div>
-          </motion.div>
+          </FadeInView>
         ))}
       </div>
-    </div>
+    </section>
   );
 }

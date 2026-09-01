@@ -47,7 +47,8 @@ function Header() {
           <span className="text-primary font-bold">/&gt;</span>
         </a>
         <input className="menu-btn" type="checkbox" id="menu-btn" />
-        <label className="menu-icon" htmlFor="menu-btn" aria-label="Open navigation menu">
+        <label className="menu-icon" htmlFor="menu-btn">
+          <span className="sr-only">Open navigation menu</span>
           <span className={isDark ? "navicon navicon-dark" : "navicon"}></span>
         </label>
         <nav aria-label="Main navigation">

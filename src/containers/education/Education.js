@@ -1,5 +1,5 @@
 import React, {useContext} from "react";
-import {motion} from "framer-motion";
+import FadeInView from "../../components/fadeIn/FadeInView";
 import {educationInfo} from "../../portfolio";
 import StyleContext from "../../contexts/StyleContext";
 import {GraduationCap, Calendar} from "lucide-react";
@@ -11,15 +11,14 @@ export default function Education() {
   }
 
   return (
-    <div className="py-20 px-6 max-w-5xl mx-auto" id="education">
-      <motion.div
-        initial={{opacity: 0, y: 20}}
-        whileInView={{opacity: 1, y: 0}}
-        viewport={{once: true}}
-        transition={{duration: 0.6}}
-        className="text-center mb-16"
-      >
+    <section
+      className="py-20 px-6 max-w-5xl mx-auto"
+      id="education"
+      aria-labelledby="education-heading"
+    >
+      <FadeInView className="text-center mb-16">
         <h2
+          id="education-heading"
           className={`text-4xl lg:text-5xl font-bold mb-4 ${
             isDark ? "text-white" : "text-gray-900"
           }`}
@@ -29,16 +28,13 @@ export default function Education() {
         <p className={`text-lg ${isDark ? "text-gray-400" : "text-gray-600"}`}>
           My academic background and qualifications.
         </p>
-      </motion.div>
+      </FadeInView>
 
       <div className="space-y-8">
         {educationInfo.schools.map((school, i) => (
-          <motion.div
+          <FadeInView
             key={i}
-            initial={{opacity: 0, y: 30}}
-            whileInView={{opacity: 1, y: 0}}
-            viewport={{once: true}}
-            transition={{duration: 0.5, delay: i * 0.1}}
+            delay={i * 0.1}
             className={`p-8 rounded-3xl shadow-xl transition-all duration-300 ${
               isDark
                 ? "bg-gray-800/50 border border-gray-700 hover:border-primary/50"
@@ -51,6 +47,8 @@ export default function Education() {
                   <img
                     src={school.logo?.default || school.logo}
                     alt={school.schoolName}
+                    width="96"
+                    height="96"
                     className="w-full h-full object-contain p-2"
                   />
                 ) : (
@@ -109,9 +107,9 @@ export default function Education() {
                 )}
               </div>
             </div>
-          </motion.div>
+          </FadeInView>
         ))}
       </div>
-    </div>
+    </section>
   );
 }

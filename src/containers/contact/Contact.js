@@ -1,5 +1,5 @@
 import React, {useContext, useState} from "react";
-import {motion} from "framer-motion";
+import FadeInView from "../../components/fadeIn/FadeInView";
 import SocialMedia from "../../components/socialMedia/SocialMedia";
 import {contactInfo} from "../../portfolio";
 import StyleContext from "../../contexts/StyleContext";
@@ -14,15 +14,14 @@ export default function Contact() {
   };
 
   return (
-    <div className="py-20 px-6 max-w-7xl mx-auto" id="contact">
-      <motion.div
-        initial={{opacity: 0, y: 20}}
-        whileInView={{opacity: 1, y: 0}}
-        viewport={{once: true}}
-        transition={{duration: 0.6}}
-        className="text-center mb-16"
-      >
+    <section
+      className="py-20 px-6 max-w-7xl mx-auto"
+      id="contact"
+      aria-labelledby="contact-heading"
+    >
+      <FadeInView className="text-center mb-16">
         <h2
+          id="contact-heading"
           className={`text-4xl lg:text-5xl font-bold mb-4 ${
             isDark ? "text-white" : "text-gray-900"
           }`}
@@ -36,16 +35,10 @@ export default function Contact() {
         >
           {contactInfo.subtitle}
         </p>
-      </motion.div>
+      </FadeInView>
 
       <div className="flex flex-col lg:flex-row gap-16">
-        <motion.div
-          initial={{opacity: 0, x: -50}}
-          whileInView={{opacity: 1, x: 0}}
-          viewport={{once: true}}
-          transition={{duration: 0.8}}
-          className="flex-1 space-y-8"
-        >
+        <FadeInView variant="left" className="flex-1 space-y-8">
           <div
             className={`p-8 rounded-3xl shadow-xl ${
               isDark
@@ -193,13 +186,10 @@ export default function Contact() {
           <div className="flex justify-center lg:justify-start">
             <SocialMedia />
           </div>
-        </motion.div>
+        </FadeInView>
 
-        <motion.div
-          initial={{opacity: 0, x: 50}}
-          whileInView={{opacity: 1, x: 0}}
-          viewport={{once: true}}
-          transition={{duration: 0.8}}
+        <FadeInView
+          variant="right"
           className="flex-1 hidden lg:flex items-center justify-center"
         >
           <img
@@ -208,12 +198,14 @@ export default function Contact() {
               require("../../assets/images/googleAssistant.svg").default ||
               require("../../assets/images/googleAssistant.svg")
             }
+            width="400"
+            height="400"
             className="w-full max-w-md drop-shadow-2xl"
             loading="lazy"
             decoding="async"
           />
-        </motion.div>
+        </FadeInView>
       </div>
-    </div>
+    </section>
   );
 }

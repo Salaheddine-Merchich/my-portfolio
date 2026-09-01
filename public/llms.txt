@@ -1,0 +1,14 @@
+# Salaheddine Merchich — Software Engineering Portfolio
+
+Personal portfolio of Salaheddine Merchich, 5th-year software engineering student. Backend and full-stack developer (Java, Spring Boot, React). Open to PFE internship in Europe.
+
+## Key pages
+
+- [Home](https://my-portfolio-merchich.vercel.app/)
+- [Resume PDF](https://my-portfolio-merchich.vercel.app/resume.pdf)
+- [Contact section](https://my-portfolio-merchich.vercel.app/#contact)
+
+## Profiles
+
+- [GitHub](https://github.com/Salaheddine-Merchich)
+- [LinkedIn](https://www.linkedin.com/in/salaheddine-merchich/)

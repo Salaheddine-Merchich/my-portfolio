@@ -1,5 +1,4 @@
 import React, {useContext} from "react";
-import {motion} from "framer-motion";
 import {config} from "@fortawesome/fontawesome-svg-core";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {
@@ -52,10 +51,9 @@ export default function SoftwareSkill() {
         {skillsSection.softwareSkills.map((skill, i) => {
           const icon = SKILL_ICONS[skill.skillName] || faCode;
           return (
-            <motion.div
+            <div
               key={i}
-              whileHover={{y: -5, scale: 1.1}}
-              className="flex flex-col items-center group"
+              className="flex flex-col items-center group transition-transform duration-300 hover:-translate-y-1 hover:scale-110"
             >
               <div
                 className={`w-16 h-16 flex items-center justify-center rounded-xl transition-all duration-300 shadow-md ${
@@ -82,7 +80,7 @@ export default function SoftwareSkill() {
               >
                 {skill.skillName}
               </p>
-            </motion.div>
+            </div>
           );
         })}
       </div>
