@@ -49,7 +49,7 @@ export default function Education() {
                     alt={school.schoolName}
                     width="96"
                     height="96"
-                    className="w-full h-full object-contain p-2"
+                    className="w-full h-full object-contain p-1"
                   />
                 ) : (
                   <GraduationCap size={48} className="text-primary" />

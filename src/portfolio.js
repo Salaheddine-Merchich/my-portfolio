@@ -94,7 +94,7 @@ const educationInfo = {
   schools: [
     {
       schoolName: "EMSI Casablanca",
-      logo: require("./assets/images/skills_viz.svg"),
+      logo: "/logos/emsi.jpg",
       subHeader: "Digital Development & Information Systems Engineering",
       duration: "2022 - 2027",
       desc: "5th-year Software Engineering student with industrial backend and full-stack experience.",
