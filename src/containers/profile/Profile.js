@@ -1,49 +1,45 @@
-import React, {useState, useEffect, lazy, Suspense} from "react";
+import React, {lazy, Suspense} from "react";
 import {openSource} from "../../portfolio";
 import Contact from "../contact/Contact";
 import Loading from "../loading/Loading";
+import {useProfileData} from "../../hooks/useProfileData";
 
-const renderLoader = () => <Loading />;
 const GithubProfileCard = lazy(() =>
   import("../../components/githubProfileCard/GithubProfileCard")
 );
+
+function ProfileSkeleton() {
+  return (
+    <div
+      className="max-w-7xl mx-auto px-6 py-20 min-h-[400px] flex items-center justify-center"
+      aria-busy="true"
+      aria-label="Loading profile"
+    >
+      <Loading />
+    </div>
+  );
+}
+
 export default function Profile() {
-  const [prof, setrepo] = useState([]);
-  function setProfileFunction(array) {
-    setrepo(array);
+  const useGithubProfile = openSource.showGithubProfile === "true";
+  const {data, loading, error} = useProfileData();
+  const prof = data?.data?.user;
+
+  if (!openSource.display) {
+    return null;
   }
 
-  useEffect(() => {
-    if (openSource.showGithubProfile === "true") {
-      const getProfileData = () => {
-        fetch("/profile.json")
-          .then(result => {
-            if (result.ok) {
-              return result.json();
-            }
-          })
-          .then(response => {
-            setProfileFunction(response.data.user);
-          })
-          .catch(function () {
-            setProfileFunction("Error");
-            openSource.showGithubProfile = "false";
-          });
-      };
-      getProfileData();
-    }
-  }, []);
-  if (
-    openSource.display &&
-    openSource.showGithubProfile === "true" &&
-    !(typeof prof === "string" || prof instanceof String)
-  ) {
-    return (
-      <Suspense fallback={renderLoader()}>
-        <GithubProfileCard prof={prof} key={prof.id} />
-      </Suspense>
-    );
-  } else {
+  if (!useGithubProfile || error) {
     return <Contact />;
   }
+
+  if (loading || !prof?.avatarUrl) {
+    return <ProfileSkeleton />;
+  }
+
+  return (
+    <Suspense fallback={<ProfileSkeleton />}>
+      <GithubProfileCard prof={prof} key={prof.id} />
+    </Suspense>
+  );
 }

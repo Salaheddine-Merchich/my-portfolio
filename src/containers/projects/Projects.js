@@ -1,39 +1,35 @@
-import React, {useState, useEffect, useContext, Suspense, lazy} from "react";
+import React, {useContext, Suspense, lazy} from "react";
 import Button from "../../components/button/Button";
 import FadeInView from "../../components/fadeIn/FadeInView";
 import {openSource, socialMediaLinks} from "../../portfolio";
 import StyleContext from "../../contexts/StyleContext";
 import Loading from "../../containers/loading/Loading";
+import {useProfileData} from "../../hooks/useProfileData";
 
 const GithubRepoCard = lazy(() =>
   import("../../components/githubRepoCard/GithubRepoCard")
 );
 
 export default function Projects() {
-  const [repo, setrepo] = useState([]);
+  const {data, loading, error} = useProfileData();
   const {isDark} = useContext(StyleContext);
-
-  useEffect(() => {
-    const getRepoData = () => {
-      fetch("/profile.json")
-        .then(result => {
-          if (result.ok) {
-            return result.json();
-          }
-          throw result;
-        })
-        .then(response => {
-          setrepo(response.data.user.pinnedItems.edges);
-        })
-        .catch(function () {
-          setrepo("Error");
-        });
-    };
-    getRepoData();
-  }, []);
+  const repo = error ? "Error" : data?.data?.user?.pinnedItems?.edges ?? [];
 
   if (!openSource.display || repo === "Error") {
     return null;
+  }
+
+  if (loading) {
+    return (
+      <section
+        className="py-20 px-6 max-w-7xl mx-auto min-h-[320px] flex items-center justify-center"
+        id="opensource"
+        aria-labelledby="opensource-heading"
+        aria-busy="true"
+      >
+        <Loading />
+      </section>
+    );
   }
 
   return (
@@ -62,7 +58,7 @@ export default function Projects() {
         </FadeInView>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-          {repo.map((v, i) => (
+          {repo.map(v => (
             <GithubRepoCard repo={v} key={v.node.id} isDark={isDark} />
           ))}
         </div>
