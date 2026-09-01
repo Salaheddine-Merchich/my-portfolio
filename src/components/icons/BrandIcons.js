@@ -1,12 +1,19 @@
 import React from "react";
 
-export function GithubIcon({className = "w-5 h-5", size}) {
+function iconClassName(className, size) {
+  if (className) {
+    return className;
+  }
+  return size ? "shrink-0" : "w-5 h-5";
+}
+
+export function GithubIcon({className, size}) {
   const dim = size ? {width: size, height: size} : undefined;
   return (
     <svg
       viewBox="0 0 24 24"
       fill="currentColor"
-      className={className}
+      className={iconClassName(className, size)}
       aria-hidden="true"
       {...dim}
     >
@@ -17,13 +24,13 @@ export function GithubIcon({className = "w-5 h-5", size}) {
   );
 }
 
-export function LinkedinIcon({className = "w-5 h-5", size}) {
+export function LinkedinIcon({className, size}) {
   const dim = size ? {width: size, height: size} : undefined;
   return (
     <svg
       viewBox="0 0 24 24"
       fill="currentColor"
-      className={className}
+      className={iconClassName(className, size)}
       aria-hidden="true"
       {...dim}
     >

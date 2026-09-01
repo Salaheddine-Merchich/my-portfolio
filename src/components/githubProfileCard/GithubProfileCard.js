@@ -53,7 +53,9 @@ export default function GithubProfileCard({prof}) {
                 Open for opportunities: {prof.hireable}
               </span>
             </div>
-            <SocialMedia />
+            <div className="flex justify-center md:justify-start mt-4">
+              <SocialMedia />
+            </div>
           </div>
           <div className="image-content-profile">
             <img

@@ -34,7 +34,7 @@ export default function Greeting() {
             >
               {greeting.subTitle}
             </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 mt-8">
+            <div className="flex justify-center lg:justify-start mt-8">
               <SocialMedia />
             </div>
             <div className="button-greeting-div flex flex-wrap items-center justify-center lg:justify-start gap-4 mt-10">

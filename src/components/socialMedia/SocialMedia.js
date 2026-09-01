@@ -1,56 +1,58 @@
 import React from "react";
-import "./SocialMedia.scss";
 import {Mail, Phone} from "lucide-react";
 import {GithubIcon, LinkedinIcon} from "../icons/BrandIcons";
 import {socialMediaLinks} from "../../portfolio";
 
-export default function socialMedia() {
+const socialIconButtonClass =
+  "inline-flex items-center justify-center w-12 h-12 min-w-[48px] min-h-[48px] rounded-full bg-primary/10 text-primary transition-all hover:bg-primary/20 hover:scale-105";
+
+export default function SocialMedia() {
   if (!socialMediaLinks.display) {
     return null;
   }
   return (
-    <div className="social-media-div">
+    <div className="flex flex-row flex-wrap items-center gap-3">
       {socialMediaLinks.github ? (
         <a
           href={socialMediaLinks.github}
-          className="icon-button github"
+          className={socialIconButtonClass}
           target="_blank"
           rel="noopener noreferrer"
           aria-label="GitHub profile"
         >
-          <GithubIcon />
+          <GithubIcon size={24} />
         </a>
       ) : null}
 
       {socialMediaLinks.linkedin ? (
         <a
           href={socialMediaLinks.linkedin}
-          className="icon-button linkedin"
+          className={socialIconButtonClass}
           target="_blank"
           rel="noopener noreferrer"
           aria-label="LinkedIn profile"
         >
-          <LinkedinIcon />
+          <LinkedinIcon size={24} />
         </a>
       ) : null}
 
       {socialMediaLinks.gmail ? (
         <a
           href={`mailto:${socialMediaLinks.gmail}`}
-          className="icon-button google"
+          className={socialIconButtonClass}
           aria-label="Send email"
         >
-          <Mail className="w-5 h-5" aria-hidden="true" />
+          <Mail size={24} aria-hidden="true" />
         </a>
       ) : null}
 
       {socialMediaLinks.phone ? (
         <a
           href={`tel:${socialMediaLinks.phone}`}
-          className="icon-button phone"
+          className={socialIconButtonClass}
           aria-label="Call phone number"
         >
-          <Phone className="w-5 h-5" aria-hidden="true" />
+          <Phone size={24} aria-hidden="true" />
         </a>
       ) : null}
     </div>
