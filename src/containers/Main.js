@@ -50,7 +50,7 @@ const Main = () => {
   }, []);
 
   const changeTheme = () => {
-    setIsDark(!isDark);
+    setIsDark(prev => !prev);
   };
 
   return (

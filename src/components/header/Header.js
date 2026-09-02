@@ -57,11 +57,14 @@ function Header() {
           </span>
           <span className="text-primary font-bold">/&gt;</span>
         </a>
-        <input className="menu-btn" type="checkbox" id="menu-btn" />
-        <label className="menu-icon" htmlFor="menu-btn">
-          <span className="sr-only">Open navigation menu</span>
-          <span className={isDark ? "navicon navicon-dark" : "navicon"}></span>
-        </label>
+        <div className="header-actions">
+          <ToggleSwitch />
+          <input className="menu-btn" type="checkbox" id="menu-btn" />
+          <label className="menu-icon" htmlFor="menu-btn">
+            <span className="sr-only">Open navigation menu</span>
+            <span className={isDark ? "navicon navicon-dark" : "navicon"}></span>
+          </label>
+        </div>
         <nav aria-label="Main navigation">
         <ul className={`menu ${isDark ? "dark-menu" : ""}`}>
           <li>
@@ -129,9 +132,6 @@ function Header() {
             <a href="#contact" onClick={closeMobileMenu} className={navLinkClass}>
               Contact
             </a>
-          </li>
-          <li className="flex items-center">
-            <ToggleSwitch />
           </li>
         </ul>
         </nav>
