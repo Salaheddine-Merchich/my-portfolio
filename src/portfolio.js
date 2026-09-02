@@ -359,7 +359,7 @@ const resumeFiles = {
 const resumeSection = {
   title: "Resume / CV",
   subtitle:
-    "Téléchargez mon CV en français ou en anglais. Download my resume in French or English.",
+    "Preview my CV below in French or English, then download the version you need.",
   display: true,
   files: resumeFiles
 };

@@ -26,6 +26,17 @@ function Header() {
   const viewResume = resumeSection.display;
   const viewEducation = educationInfo.display;
 
+  const closeMobileMenu = () => {
+    const menuBtn = document.getElementById("menu-btn");
+    if (menuBtn) {
+      menuBtn.checked = false;
+    }
+  };
+
+  const navLinkClass = isDark
+    ? "font-bold uppercase tracking-wider text-sm hover:text-primary transition-colors text-white"
+    : "font-bold uppercase tracking-wider text-sm hover:text-primary transition-colors text-gray-900";
+
   return (
     <Headroom>
       <header
@@ -54,120 +65,68 @@ function Header() {
         <nav aria-label="Main navigation">
         <ul className={`menu ${isDark ? "dark-menu" : ""}`}>
           <li>
-            <a
-              href="#greeting"
-              className={`font-bold uppercase tracking-wider text-sm hover:text-primary transition-colors ${
-                isDark ? "text-white" : "text-gray-900"
-              }`}
-            >
+            <a href="#greeting" onClick={closeMobileMenu} className={navLinkClass}>
               Home
             </a>
           </li>
           {viewSkills && (
             <li>
-              <a
-                href="#skills"
-                className={`font-bold uppercase tracking-wider text-sm hover:text-primary transition-colors ${
-                  isDark ? "text-white" : "text-gray-900"
-                }`}
-              >
+              <a href="#skills" onClick={closeMobileMenu} className={navLinkClass}>
                 About
               </a>
             </li>
           )}
           {viewEducation && (
             <li>
-              <a
-                href="#education"
-                className={`font-bold uppercase tracking-wider text-sm hover:text-primary transition-colors ${
-                  isDark ? "text-white" : "text-gray-900"
-                }`}
-              >
+              <a href="#education" onClick={closeMobileMenu} className={navLinkClass}>
                 Education
               </a>
             </li>
           )}
           {viewExperience && (
             <li>
-              <a
-                href="#experience"
-                className={`font-bold uppercase tracking-wider text-sm hover:text-primary transition-colors ${
-                  isDark ? "text-white" : "text-gray-900"
-                }`}
-              >
+              <a href="#experience" onClick={closeMobileMenu} className={navLinkClass}>
                 Experience
               </a>
             </li>
           )}
           {viewOpenSource && (
             <li>
-              <a
-                href="#projects"
-                className={`font-bold uppercase tracking-wider text-sm hover:text-primary transition-colors ${
-                  isDark ? "text-white" : "text-gray-900"
-                }`}
-              >
+              <a href="#projects" onClick={closeMobileMenu} className={navLinkClass}>
                 Projects
               </a>
             </li>
           )}
           {viewAchievement && (
             <li>
-              <a
-                href="#achievements"
-                className={`font-bold uppercase tracking-wider text-sm hover:text-primary transition-colors ${
-                  isDark ? "text-white" : "text-gray-900"
-                }`}
-              >
+              <a href="#achievements" onClick={closeMobileMenu} className={navLinkClass}>
                 Certificates
               </a>
             </li>
           )}
           {viewBlog && (
             <li>
-              <a
-                href="#blogs"
-                className={`font-bold uppercase tracking-wider text-sm hover:text-primary transition-colors ${
-                  isDark ? "text-white" : "text-gray-900"
-                }`}
-              >
+              <a href="#blogs" onClick={closeMobileMenu} className={navLinkClass}>
                 Blogs
               </a>
             </li>
           )}
           {viewTalks && (
             <li>
-              <a
-                href="#talks"
-                className={`font-bold uppercase tracking-wider text-sm hover:text-primary transition-colors ${
-                  isDark ? "text-white" : "text-gray-900"
-                }`}
-              >
+              <a href="#talks" onClick={closeMobileMenu} className={navLinkClass}>
                 Talks
               </a>
             </li>
           )}
           {viewResume && (
             <li>
-              <a
-                href="#resume"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`font-bold uppercase tracking-wider text-sm hover:text-primary transition-colors ${
-                  isDark ? "text-white" : "text-gray-900"
-                }`}
-              >
+              <a href="#resume" onClick={closeMobileMenu} className={navLinkClass}>
                 Resume
               </a>
             </li>
           )}
           <li>
-            <a
-              href="#contact"
-              className={`font-bold uppercase tracking-wider text-sm hover:text-primary transition-colors ${
-                isDark ? "text-white" : "text-gray-900"
-              }`}
-            >
+            <a href="#contact" onClick={closeMobileMenu} className={navLinkClass}>
               Contact
             </a>
           </li>

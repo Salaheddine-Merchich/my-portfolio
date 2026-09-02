@@ -3,7 +3,7 @@ import FadeInView from "../../components/fadeIn/FadeInView";
 import Button from "../../components/button/Button";
 import {resumeSection} from "../../portfolio";
 import StyleContext from "../../contexts/StyleContext";
-import {FileText, Download} from "lucide-react";
+import {ExternalLink} from "lucide-react";
 
 export default function Resume() {
   const {isDark} = useContext(StyleContext);
@@ -16,7 +16,7 @@ export default function Resume() {
 
   return (
     <section
-      className="py-20 px-6 max-w-5xl mx-auto"
+      className="py-20 px-6 max-w-6xl mx-auto scroll-mt-24"
       id="resume"
       aria-labelledby="resume-heading"
     >
@@ -38,28 +38,19 @@ export default function Resume() {
         </p>
       </FadeInView>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         {files.map((file, i) => (
           <FadeInView
             key={file.shortLabel}
             delay={i * 0.1}
-            className={`p-6 rounded-2xl shadow-lg transition-all duration-300 hover:-translate-y-1 ${
+            className={`p-6 rounded-2xl shadow-lg transition-all duration-300 ${
               isDark
                 ? "bg-gray-800/50 border border-gray-700 hover:border-primary/50"
                 : "bg-white border border-gray-100 hover:border-primary/30"
-            } backdrop-blur-sm flex flex-col items-center text-center gap-4`}
+            } backdrop-blur-sm flex flex-col gap-5`}
           >
-            <div
-              className={`w-16 h-16 rounded-2xl flex items-center justify-center ${
-                isDark ? "bg-primary/20" : "bg-primary/10"
-              }`}
-            >
-              <FileText size={32} className="text-primary" />
-            </div>
-            <div>
-              <p
-                className={`text-xs font-bold uppercase tracking-widest text-primary mb-1`}
-              >
+            <div className="text-center">
+              <p className="text-xs font-bold uppercase tracking-widest text-primary mb-1">
                 {file.shortLabel}
               </p>
               <h3
@@ -70,23 +61,38 @@ export default function Resume() {
                 {file.label}
               </h3>
             </div>
-            <Button
-              text="Download PDF"
-              href={file.href}
-              download={file.download}
-              className="w-full flex items-center justify-center gap-2 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-primary/50"
-            />
-            <a
-              href={file.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`flex items-center gap-2 text-sm font-medium hover:text-primary transition-colors ${
-                isDark ? "text-gray-400" : "text-gray-500"
-              }`}
+
+            <div
+              className="w-full rounded-xl border border-gray-200 bg-white overflow-hidden shadow-inner"
+              aria-label={`${file.label} preview`}
             >
-              <Download size={14} />
-              View in browser
-            </a>
+              <iframe
+                src={file.href}
+                title={`${file.label} preview`}
+                className="w-full h-[min(520px,70vh)] border-0"
+                loading="lazy"
+              />
+            </div>
+
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+              <Button
+                text="Download PDF"
+                href={file.href}
+                download={file.download}
+                className="w-full sm:w-auto transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-primary/50"
+              />
+              <a
+                href={file.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`flex items-center justify-center gap-2 text-sm font-semibold hover:text-primary transition-colors ${
+                  isDark ? "text-gray-300" : "text-gray-600"
+                }`}
+              >
+                <ExternalLink size={16} />
+                Open full screen
+              </a>
+            </div>
           </FadeInView>
         ))}
       </div>
