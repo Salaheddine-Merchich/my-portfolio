@@ -10,7 +10,7 @@
       ]
     },
     {
-      "source": "/:path*\\.(svg|pdf|png|ico|webp|txt|xml)",
+      "source": "/:path*\\.(svg|pdf|png|jpg|jpeg|ico|webp|txt|xml|html)",
       "headers": [
         {
           "key": "Cache-Control",

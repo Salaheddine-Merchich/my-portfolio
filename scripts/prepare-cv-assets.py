@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-"""Fix broken Word-exported FR CV PDF and generate section preview images.
+"""Fix broken Word-exported CV PDFs and generate section preview images.
 
 Requires: pip install pymupdf pillow
 
-Keep public/cv/resume-fr-source.pdf as the Word-export master (readable in Word).
-Rasterizes it into resume-fr.pdf (image-only PDF) and JPG previews for the site.
+Keep public/cv/resume-*-source.pdf as Word-export masters.
+Rasterizes into image-only PDFs and PNG previews for the site.
 """
 import sys
 from pathlib import Path
@@ -20,8 +20,9 @@ ROOT = Path(__file__).resolve().parents[1]
 CV_DIR = ROOT / "public" / "cv"
 SCALE_PREVIEW = 1.25
 SCALE_FULL = 2.0
-SCALE_PDF = 2.0
+ASSET_VERSION = "4"
 FR_SOURCE = CV_DIR / "resume-fr-source.pdf"
+EN_SOURCE = CV_DIR / "resume-en-source.pdf"
 
 
 def pixmap_to_image(pix: fitz.Pixmap) -> Image.Image:
@@ -35,8 +36,8 @@ def render_page(src_path: Path, scale: float) -> Image.Image:
     return pixmap_to_image(pix)
 
 
-def save_jpeg(img: Image.Image, dst_path: Path, quality: int = 82) -> None:
-    img.save(str(dst_path), "JPEG", quality=quality, optimize=True)
+def save_png(img: Image.Image, dst_path: Path) -> None:
+    img.save(str(dst_path), "PNG", optimize=True)
 
 
 def save_image_pdf(img: Image.Image, dst_path: Path) -> None:
@@ -46,9 +47,10 @@ def save_image_pdf(img: Image.Image, dst_path: Path) -> None:
 
 
 def write_viewer_html(dst_path: Path, image_name: str, title: str) -> None:
+    img_src = f"{image_name}?v={ASSET_VERSION}"
     dst_path.write_text(
         f"""<!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -86,7 +88,7 @@ def write_viewer_html(dst_path: Path, image_name: str, title: str) -> None:
 <body>
   <main>
     <a class="back" href="/#resume">← Back to portfolio</a>
-    <img src="{image_name}" alt="{title}" />
+    <img src="{img_src}" alt="{title}" />
   </main>
 </body>
 </html>
@@ -95,34 +97,31 @@ def write_viewer_html(dst_path: Path, image_name: str, title: str) -> None:
     )
 
 
-def main() -> None:
-    en_src = CV_DIR / "resume-en.pdf"
-
-    if not FR_SOURCE.exists():
-        print(f"Missing {FR_SOURCE}")
+def process_lang(prefix: str, source: Path, view_title: str) -> None:
+    if not source.exists():
+        print(f"Missing {source}")
         sys.exit(1)
 
-    fr_full = render_page(FR_SOURCE, SCALE_FULL)
-    save_jpeg(fr_full, CV_DIR / "resume-fr-full.jpg", quality=88)
-    save_image_pdf(fr_full, CV_DIR / "resume-fr.pdf")
-    save_jpeg(render_page(FR_SOURCE, SCALE_PREVIEW), CV_DIR / "resume-fr-preview.jpg")
-    write_viewer_html(
-        CV_DIR / "resume-fr-view.html",
-        "resume-fr-full.jpg",
-        "CV — Salaheddine Merchich (Français)",
-    )
-    print("Wrote resume-fr.pdf, resume-fr-preview.jpg, resume-fr-full.jpg, resume-fr-view.html")
+    full_img = render_page(source, SCALE_FULL)
+    preview_img = render_page(source, SCALE_PREVIEW)
 
-    if en_src.exists():
-        save_jpeg(render_page(en_src, SCALE_PREVIEW), CV_DIR / "resume-en-preview.jpg")
-        en_full = render_page(en_src, SCALE_FULL)
-        save_jpeg(en_full, CV_DIR / "resume-en-full.jpg", quality=88)
-        write_viewer_html(
-            CV_DIR / "resume-en-view.html",
-            "resume-en-full.jpg",
-            "Resume — Salaheddine Merchich (English)",
-        )
-        print("Wrote resume-en-preview.jpg, resume-en-full.jpg, resume-en-view.html")
+    save_png(preview_img, CV_DIR / f"resume-{prefix}-preview.png")
+    save_png(full_img, CV_DIR / f"resume-{prefix}-full.png")
+    save_image_pdf(full_img, CV_DIR / f"resume-{prefix}.pdf")
+    write_viewer_html(
+        CV_DIR / f"resume-{prefix}-view.html",
+        f"resume-{prefix}-full.png",
+        view_title,
+    )
+    print(
+        f"Wrote resume-{prefix}.pdf, resume-{prefix}-preview.png, "
+        f"resume-{prefix}-full.png, resume-{prefix}-view.html"
+    )
+
+
+def main() -> None:
+    process_lang("fr", FR_SOURCE, "CV — Salaheddine Merchich (Français)")
+    process_lang("en", EN_SOURCE, "Resume — Salaheddine Merchich (English)")
 
 
 if __name__ == "__main__":
