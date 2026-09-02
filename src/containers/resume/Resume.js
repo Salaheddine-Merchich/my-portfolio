@@ -62,17 +62,20 @@ export default function Resume() {
               </h3>
             </div>
 
-            <div
-              className="w-full rounded-xl border border-gray-200 bg-white overflow-hidden shadow-inner"
-              aria-label={`${file.label} preview`}
+            <a
+              href={file.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block w-full rounded-xl border border-gray-200 bg-white overflow-hidden shadow-inner hover:ring-2 hover:ring-primary/40 transition-all"
+              aria-label={`${file.label} preview — open full screen`}
             >
-              <iframe
-                src={file.href}
-                title={`${file.label} preview`}
-                className="w-full h-[min(520px,70vh)] border-0"
+              <img
+                src={file.previewHref}
+                alt={`${file.label} preview`}
+                className="w-full h-auto max-h-[min(520px,70vh)] object-contain object-top"
                 loading="lazy"
               />
-            </div>
+            </a>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
               <Button

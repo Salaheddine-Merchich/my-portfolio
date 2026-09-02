@@ -19,6 +19,7 @@
   },
   "scripts": {
     "predeploy": "npm run build",
+    "prepare-cv": "python scripts/prepare-cv-assets.py",
     "start": "node fetch.js && react-scripts start",
     "build": "node fetch.js && react-scripts build",
     "deploy": "gh-pages -b master -d build",

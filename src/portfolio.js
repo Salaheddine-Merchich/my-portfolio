@@ -346,12 +346,14 @@ const resumeFiles = {
     label: "CV — Français",
     shortLabel: "FR",
     href: "/cv/resume-fr.pdf",
+    previewHref: "/cv/resume-fr-preview.jpg",
     download: "CV_Salaheddine_Merchich_FR.pdf"
   },
   en: {
     label: "CV — English",
     shortLabel: "EN",
     href: "/cv/resume-en.pdf",
+    previewHref: "/cv/resume-en-preview.jpg",
     download: "CV_Salaheddine_Merchich_EN.pdf"
   }
 };
