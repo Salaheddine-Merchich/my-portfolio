@@ -150,7 +150,7 @@ function Header() {
           {viewResume && (
             <li>
               <a
-                href="/resume.pdf"
+                href="#resume"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`font-bold uppercase tracking-wider text-sm hover:text-primary transition-colors ${

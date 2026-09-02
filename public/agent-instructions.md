@@ -16,6 +16,7 @@ Salaheddine Merchich is a 5th-year software engineering student (EMSI Casablanca
 | Experience | https://salaheddine-merchich.vercel.app/#experience |
 | Projects | https://salaheddine-merchich.vercel.app/#projects |
 | Certificates | https://salaheddine-merchich.vercel.app/#achievements |
+| Resume / CV | https://salaheddine-merchich.vercel.app/#resume |
 | Contact | https://salaheddine-merchich.vercel.app/#contact |
 
 ## Contact
@@ -27,7 +28,10 @@ Salaheddine Merchich is a 5th-year software engineering student (EMSI Casablanca
 
 ## Resume
 
-Download CV PDF: https://salaheddine-merchich.vercel.app/resume.pdf
+- English CV: https://salaheddine-merchich.vercel.app/cv/resume-en.pdf
+- French CV: https://salaheddine-merchich.vercel.app/cv/resume-fr.pdf
+- Resume section: https://salaheddine-merchich.vercel.app/#resume
+- Legacy English URL: https://salaheddine-merchich.vercel.app/resume.pdf
 
 ## Related files
 

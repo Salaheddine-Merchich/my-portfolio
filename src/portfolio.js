@@ -341,10 +341,27 @@ const podcastSection = {
 };
 
 // Resume Section
+const resumeFiles = {
+  fr: {
+    label: "CV — Français",
+    shortLabel: "FR",
+    href: "/cv/resume-fr.pdf",
+    download: "CV_Salaheddine_Merchich_FR.pdf"
+  },
+  en: {
+    label: "CV — English",
+    shortLabel: "EN",
+    href: "/cv/resume-en.pdf",
+    download: "CV_Salaheddine_Merchich_EN.pdf"
+  }
+};
+
 const resumeSection = {
-  title: "Resume",
-  subtitle: "Interested in working together? Download my resume here.",
-  display: true // Set false to hide this section, defaults to true
+  title: "Resume / CV",
+  subtitle:
+    "Téléchargez mon CV en français ou en anglais. Download my resume in French or English.",
+  display: true,
+  files: resumeFiles
 };
 
 const contactInfo = {
@@ -382,5 +399,6 @@ export {
   contactInfo,
   twitterDetails,
   isHireable,
-  resumeSection
+  resumeSection,
+  resumeFiles
 };

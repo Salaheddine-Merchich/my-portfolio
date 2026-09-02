@@ -13,8 +13,26 @@
       "parameters": []
     },
     {
+      "id": "resume_section",
+      "description": "Navigate to the resume / CV section",
+      "url": "https://salaheddine-merchich.vercel.app/#resume",
+      "parameters": []
+    },
+    {
+      "id": "download_resume_en",
+      "description": "Download the English CV PDF",
+      "url": "https://salaheddine-merchich.vercel.app/cv/resume-en.pdf",
+      "parameters": []
+    },
+    {
+      "id": "download_resume_fr",
+      "description": "Download the French CV PDF",
+      "url": "https://salaheddine-merchich.vercel.app/cv/resume-fr.pdf",
+      "parameters": []
+    },
+    {
       "id": "download_resume",
-      "description": "Download the CV PDF",
+      "description": "Download the English CV PDF (legacy URL)",
       "url": "https://salaheddine-merchich.vercel.app/resume.pdf",
       "parameters": []
     }

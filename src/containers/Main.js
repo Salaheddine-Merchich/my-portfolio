@@ -20,6 +20,7 @@ const WorkExperience = lazy(() => import("./workExperience/WorkExperience"));
 const StartupProject = lazy(() => import("./StartupProjects/StartupProject"));
 const Projects = lazy(() => import("./projects/Projects"));
 const Achievement = lazy(() => import("./achievement/Achievement"));
+const Resume = lazy(() => import("./resume/Resume"));
 const Profile = lazy(() => import("./profile/Profile"));
 const Footer = lazy(() => import("../components/footer/Footer"));
 const Blogs = lazy(() => import("./blogs/Blogs"));
@@ -68,6 +69,7 @@ const Main = () => {
               <StartupProject />
               <Projects />
               <Achievement />
+              <Resume />
               {blogSection.display && <Blogs />}
               {talkSection.display && <Talks />}
               {twitterDetails.display && <Twitter />}

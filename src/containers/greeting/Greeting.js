@@ -3,7 +3,7 @@ import emoji from "react-easy-emoji";
 import "./Greeting.scss";
 import SocialMedia from "../../components/socialMedia/SocialMedia";
 import Button from "../../components/button/Button";
-import {greeting} from "../../portfolio";
+import {greeting, resumeFiles} from "../../portfolio";
 import StyleContext from "../../contexts/StyleContext";
 
 export default function Greeting() {
@@ -44,12 +44,20 @@ export default function Greeting() {
                 className="transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-primary/50"
               />
               {greeting.resumeLink && (
-                <Button
-                  text="Download CV"
-                  href={greeting.resumeLink === "#" ? "#" : "/resume.pdf"}
-                  download="Salaheddine_Merchich_Resume.pdf"
-                  className="transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-primary/50"
-                />
+                <>
+                  <Button
+                    text={resumeFiles.fr.label}
+                    href={resumeFiles.fr.href}
+                    download={resumeFiles.fr.download}
+                    className="transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-primary/50"
+                  />
+                  <Button
+                    text={resumeFiles.en.label}
+                    href={resumeFiles.en.href}
+                    download={resumeFiles.en.download}
+                    className="transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-primary/50"
+                  />
+                </>
               )}
             </div>
           </div>
