@@ -39,7 +39,10 @@ export default function Resume() {
       </FadeInView>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-        {files.map((file, i) => (
+        {files.map((file, i) => {
+          const viewHref = file.viewHref || file.href;
+
+          return (
           <FadeInView
             key={file.shortLabel}
             delay={i * 0.1}
@@ -63,7 +66,7 @@ export default function Resume() {
             </div>
 
             <a
-              href={file.href}
+              href={viewHref}
               target="_blank"
               rel="noopener noreferrer"
               className="block w-full rounded-xl border border-gray-200 bg-white overflow-hidden shadow-inner hover:ring-2 hover:ring-primary/40 transition-all"
@@ -85,7 +88,7 @@ export default function Resume() {
                 className="w-full sm:w-auto transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-primary/50"
               />
               <a
-                href={file.href}
+                href={viewHref}
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`flex items-center justify-center gap-2 text-sm font-semibold hover:text-primary transition-colors ${
@@ -97,7 +100,8 @@ export default function Resume() {
               </a>
             </div>
           </FadeInView>
-        ))}
+          );
+        })}
       </div>
     </section>
   );

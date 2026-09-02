@@ -341,19 +341,23 @@ const podcastSection = {
 };
 
 // Resume Section
+const CV_ASSET_VERSION = "3";
+
 const resumeFiles = {
   fr: {
     label: "CV — Français",
     shortLabel: "FR",
-    href: "/cv/resume-fr.pdf",
-    previewHref: "/cv/resume-fr-preview.jpg",
+    href: `/cv/resume-fr.pdf?v=${CV_ASSET_VERSION}`,
+    previewHref: `/cv/resume-fr-preview.jpg?v=${CV_ASSET_VERSION}`,
+    viewHref: `/cv/resume-fr-view.html?v=${CV_ASSET_VERSION}`,
     download: "CV_Salaheddine_Merchich_FR.pdf"
   },
   en: {
     label: "CV — English",
     shortLabel: "EN",
-    href: "/cv/resume-en.pdf",
-    previewHref: "/cv/resume-en-preview.jpg",
+    href: `/cv/resume-en.pdf?v=${CV_ASSET_VERSION}`,
+    previewHref: `/cv/resume-en-preview.jpg?v=${CV_ASSET_VERSION}`,
+    viewHref: `/cv/resume-en-view.html?v=${CV_ASSET_VERSION}`,
     download: "CV_Salaheddine_Merchich_EN.pdf"
   }
 };
