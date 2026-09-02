@@ -16,10 +16,11 @@
       margin: 0 auto;
       padding: 16px;
     }
-    img {
+    .cv-frame {
       display: block;
       width: 100%;
-      height: auto;
+      height: min(90vh, 1400px);
+      border: 0;
       background: #fff;
       border-radius: 12px;
       box-shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
@@ -37,7 +38,11 @@
 <body>
   <main>
     <a class="back" href="/#resume">← Back to portfolio</a>
-    <img src="resume-en-full.png?v=4" alt="Resume — Salaheddine Merchich (English)" />
+    <iframe
+      src="resume-en.pdf?v=5"
+      title="Resume — Salaheddine Merchich (English)"
+      class="cv-frame"
+    ></iframe>
   </main>
 </body>
 </html>

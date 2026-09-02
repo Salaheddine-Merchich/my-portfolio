@@ -341,7 +341,7 @@ const podcastSection = {
 };
 
 // Resume Section
-const CV_ASSET_VERSION = "4";
+const CV_ASSET_VERSION = "5";
 
 const resumeFiles = {
   fr: {

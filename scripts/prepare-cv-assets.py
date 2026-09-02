@@ -4,7 +4,7 @@
 Requires: pip install pymupdf pillow
 
 Keep public/cv/resume-*-source.pdf as Word-export masters.
-Rasterizes into image-only PDFs and PNG previews for the site.
+Rasterizes into image PDFs with copied hyperlinks and PNG previews for the site.
 """
 import sys
 from pathlib import Path
@@ -20,7 +20,7 @@ ROOT = Path(__file__).resolve().parents[1]
 CV_DIR = ROOT / "public" / "cv"
 SCALE_PREVIEW = 1.25
 SCALE_FULL = 2.0
-ASSET_VERSION = "4"
+ASSET_VERSION = "5"
 FR_SOURCE = CV_DIR / "resume-fr-source.pdf"
 EN_SOURCE = CV_DIR / "resume-en-source.pdf"
 
@@ -29,7 +29,7 @@ def pixmap_to_image(pix: fitz.Pixmap) -> Image.Image:
     return Image.frombytes("RGB", [pix.width, pix.height], pix.samples)
 
 
-def render_page(src_path: Path, scale: float) -> Image.Image:
+def render_page_image(src_path: Path, scale: float) -> Image.Image:
     doc = fitz.open(str(src_path))
     pix = doc[0].get_pixmap(matrix=fitz.Matrix(scale, scale), alpha=False)
     doc.close()
@@ -40,14 +40,41 @@ def save_png(img: Image.Image, dst_path: Path) -> None:
     img.save(str(dst_path), "PNG", optimize=True)
 
 
-def save_image_pdf(img: Image.Image, dst_path: Path) -> None:
+def save_linked_image_pdf(source: Path, dst_path: Path, scale: float) -> None:
+    src_doc = fitz.open(str(source))
+    src_page = src_doc[0]
+    pix = src_page.get_pixmap(matrix=fitz.Matrix(scale, scale), alpha=False)
+    rect = fitz.Rect(0, 0, pix.width, pix.height)
+
+    out = fitz.open()
+    page = out.new_page(width=rect.width, height=rect.height)
+    page.insert_image(rect, pixmap=pix)
+
+    src_rect = src_page.rect
+    sx = pix.width / src_rect.width
+    sy = pix.height / src_rect.height
+    link_count = 0
+    for link in src_page.get_links():
+        uri = link.get("uri")
+        if not uri:
+            continue
+        r = link["from"]
+        new_rect = fitz.Rect(r.x0 * sx, r.y0 * sy, r.x1 * sx, r.y1 * sy)
+        page.insert_link(
+            {"kind": fitz.LINK_URI, "from": new_rect, "uri": uri}
+        )
+        link_count += 1
+
     tmp = dst_path.with_suffix(".tmp.pdf")
-    img.save(str(tmp), "PDF", resolution=200.0)
+    out.save(str(tmp), deflate=True, garbage=4)
+    out.close()
+    src_doc.close()
     tmp.replace(dst_path)
+    print(f"  {dst_path.name}: {link_count} links embedded")
 
 
-def write_viewer_html(dst_path: Path, image_name: str, title: str) -> None:
-    img_src = f"{image_name}?v={ASSET_VERSION}"
+def write_viewer_html(dst_path: Path, pdf_name: str, title: str) -> None:
+    pdf_src = f"{pdf_name}?v={ASSET_VERSION}"
     dst_path.write_text(
         f"""<!DOCTYPE html>
 <html lang="en">
@@ -67,10 +94,11 @@ def write_viewer_html(dst_path: Path, image_name: str, title: str) -> None:
       margin: 0 auto;
       padding: 16px;
     }}
-    img {{
+    .cv-frame {{
       display: block;
       width: 100%;
-      height: auto;
+      height: min(90vh, 1400px);
+      border: 0;
       background: #fff;
       border-radius: 12px;
       box-shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
@@ -88,7 +116,11 @@ def write_viewer_html(dst_path: Path, image_name: str, title: str) -> None:
 <body>
   <main>
     <a class="back" href="/#resume">← Back to portfolio</a>
-    <img src="{img_src}" alt="{title}" />
+    <iframe
+      src="{pdf_src}"
+      title="{title}"
+      class="cv-frame"
+    ></iframe>
   </main>
 </body>
 </html>
@@ -102,15 +134,12 @@ def process_lang(prefix: str, source: Path, view_title: str) -> None:
         print(f"Missing {source}")
         sys.exit(1)
 
-    full_img = render_page(source, SCALE_FULL)
-    preview_img = render_page(source, SCALE_PREVIEW)
-
-    save_png(preview_img, CV_DIR / f"resume-{prefix}-preview.png")
-    save_png(full_img, CV_DIR / f"resume-{prefix}-full.png")
-    save_image_pdf(full_img, CV_DIR / f"resume-{prefix}.pdf")
+    save_png(render_page_image(source, SCALE_PREVIEW), CV_DIR / f"resume-{prefix}-preview.png")
+    save_png(render_page_image(source, SCALE_FULL), CV_DIR / f"resume-{prefix}-full.png")
+    save_linked_image_pdf(source, CV_DIR / f"resume-{prefix}.pdf", SCALE_FULL)
     write_viewer_html(
         CV_DIR / f"resume-{prefix}-view.html",
-        f"resume-{prefix}-full.png",
+        f"resume-{prefix}.pdf",
         view_title,
     )
     print(
